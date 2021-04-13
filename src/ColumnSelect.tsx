@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import Container from './components/container/container'
 import { Option, Theme } from './types'
 
 interface ColumnSelectProps {
   options: Option[]
-  theme: Theme
+  theme?: Theme
 }
 
 const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
@@ -41,13 +42,20 @@ const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
     {
       primary: '#0f52ba',
       secondary: '#ffdf00',
-      cardBgColor: '#fff',
-      cardForeColor: '#000',
+      columnBgColor: '#CBD5E0',
     },
-    theme,
-  );
+    theme
+  )
 
-  return <div></div>
+  return (
+    <Container
+      add={add}
+      addAll={addAll}
+      remove={remove}
+      removeAll={removeAll}
+      theme={customTheme}
+    />
+  )
 }
 
 export default ColumnSelect

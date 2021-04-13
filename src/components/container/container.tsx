@@ -3,6 +3,10 @@ import { Grid, GridItem, Text } from './container.style'
 import { Theme } from '../../types'
 
 interface ContainerProps {
+  add: () => void
+  remove: () => void
+  addAll: () => void
+  removeAll: () => void
   theme?: Theme
 }
 
