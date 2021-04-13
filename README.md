@@ -6,7 +6,7 @@
 ```sh
 yarn add react-column-select
 
-// or
+# or
 
 npm install react-column-select
 ```
