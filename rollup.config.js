@@ -2,6 +2,7 @@ import typescript from 'rollup-plugin-typescript2'
 import resolve from '@rollup/plugin-node-resolve';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser'
+import svgr from '@svgr/rollup';
 import pkg from './package.json'
 
 const banner = `/*
@@ -13,14 +14,14 @@ const banner = `/*
 `;
 
 export default {
-  input: `src/index.ts`,
+  input: 'src/index.ts',
   output: [
     {
       file: pkg.main,
       name: pkg.name,
       format: 'umd',
-      sourcemap: true,
       strict: true,
+      exports: 'named',
       globals: {
         react: 'React',
         'react-dom': 'ReactDOM',
@@ -29,9 +30,9 @@ export default {
     },
     {
       file: pkg.module,
-      format: 'es',
-      sourcemap: true,
+      format: 'esm',
       strict: true,
+      exports: 'named',
       banner
     },
   ],
@@ -42,6 +43,7 @@ export default {
   plugins: [
     typescript(),
     resolve(),
+    svgr(),
     sourceMaps(),
     terser({ format: { comments: false } }),
   ],
