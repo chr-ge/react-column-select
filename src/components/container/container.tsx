@@ -76,11 +76,11 @@ const Container = ({
         <Column>
           {options.map((option) => (
             <Option
-              key={`r-${option.value}`}
+              key={`l-${option.value}`}
               label={option.label}
               isSelected={option.value === current?.value}
               onClick={() => select(option)}
-              onDoubleClick={remove}
+              onDoubleClick={add}
             />
           ))}
         </Column>
