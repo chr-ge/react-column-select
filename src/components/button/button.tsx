@@ -53,9 +53,11 @@ const Button: FC<ButtonProps> = ({
       theme={theme}
       type={type}
     >
-      {leftIcon && <ButtonIcon>{leftIcon}</ButtonIcon>}
+      {leftIcon && <ButtonIcon margin='0 0.25rem 0 0'>{leftIcon}</ButtonIcon>}
       {label}
-      {rightIcon && <ButtonIcon>{rightIcon}</ButtonIcon>}
+      {rightIcon && (
+        <ButtonIcon margin='0  0 0 0.25rem'>{rightIcon}</ButtonIcon>
+      )}
     </StyledButton>
   )
 }

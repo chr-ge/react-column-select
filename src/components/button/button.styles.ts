@@ -23,8 +23,9 @@ export const Button = styled.button<{ marginTop?: string; theme: Theme }>`
   }
 `
 
-export const ButtonIcon = styled.div`
+export const ButtonIcon = styled.div<{ margin: string }>`
   display: inline-flex;
   align-self: center;
   flex-shrink: 0;
+  margin: ${(p) => p.margin};
 `
