@@ -18,14 +18,41 @@ import RemoveIcon from '../icons/RemoveIcon'
 import RemoveAll from '../icons/RemoveAll'
 
 interface ContainerProps {
+  /**
+   * The currently selected option.
+   */
   current: OptionType
+  /**
+   * The function to set the current option.
+   */
   select: (option: OptionType) => void
+  /**
+   * The function to select an option.
+   */
   add: () => void
+  /**
+   * The function to remove a selected option.
+   */
   remove: () => void
+  /**
+   * The function to select all options.
+   */
   addAll: () => void
+  /**
+   * The function to remove all selected options.
+   */
   removeAll: () => void
+  /**
+   * The available select options.
+   */
   options: OptionType[]
+  /**
+   * The selected options.
+   */
   selected: OptionType[]
+  /**
+   * The react-column-select theme object.
+   */
   theme: Theme
 }
 
@@ -63,14 +90,12 @@ const Container = ({
           type='button'
           onClick={add}
           label='Add'
-          ariaLabel='Add'
           rightIcon={<AddIcon />}
           theme={theme}
         />
         <Button
           type='button'
           label='Add All'
-          ariaLabel='Add All'
           onClick={addAll}
           rightIcon={<AddAll />}
           marginTop='0.5rem'
@@ -79,7 +104,6 @@ const Container = ({
         <Button
           type='button'
           label='Remove'
-          ariaLabel='Remove'
           onClick={add}
           leftIcon={<RemoveIcon />}
           marginTop='1.5rem'
@@ -88,7 +112,6 @@ const Container = ({
         <Button
           type='button'
           label='Remove All'
-          ariaLabel='Remove All'
           onClick={removeAll}
           leftIcon={<RemoveAll />}
           marginTop='0.5rem'

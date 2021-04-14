@@ -3,7 +3,13 @@ import Container from './components/container/container'
 import { Option, Theme } from './types'
 
 interface ColumnSelectProps {
+  /**
+   * The array of available select options.
+   */
   options: Option[]
+  /**
+   * The react-column-select theme object.
+   */
   theme?: Theme
 }
 
