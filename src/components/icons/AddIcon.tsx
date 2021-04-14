@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Icons by Heroicons
+ * https://github.com/tailwindlabs/heroicons
+ */
+
 const AddIcon = () => (
   <svg
     stroke='currentColor'
