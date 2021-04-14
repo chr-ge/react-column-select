@@ -43,16 +43,21 @@ const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
       primary: '#0f52ba',
       secondary: '#ffdf00',
       columnBgColor: '#CBD5E0',
+      buttonBgColor: '#CBD5E0'
     },
     theme
   )
 
   return (
     <Container
+      current={current}
+      select={(option: Option) => setCurrent(option)}
       add={add}
       addAll={addAll}
       remove={remove}
       removeAll={removeAll}
+      options={selectOptions}
+      selected={selectedOptions}
       theme={customTheme}
     />
   )

@@ -8,4 +8,5 @@ export type Theme = {
   secondary?: string
   textColor?: string
   columnBgColor?: string
+  buttonBgColor?: string
 }
