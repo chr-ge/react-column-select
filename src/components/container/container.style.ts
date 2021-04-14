@@ -21,7 +21,7 @@ export const GridItemHeaderLeft = styled.div<{ theme?: Theme }>`
   align-items: center;
   padding: 0 0.5rem;
   border-width: thin;
-  background-color: ${(p) => p.theme.columnBgColor};
+  background-color: ${(p) => p.theme.headerBgColor};
 `
 
 export const GridItemHeaderRight = styled.div<{ theme?: Theme }>`
@@ -30,7 +30,7 @@ export const GridItemHeaderRight = styled.div<{ theme?: Theme }>`
   align-items: center;
   padding: 1rem;
   border-width: thin;
-  background-color: ${(p) => p.theme.columnBgColor};
+  background-color: ${(p) => p.theme.headerBgColor};
 `
 
 export const GridItemCenter = styled.div`
@@ -38,14 +38,14 @@ export const GridItemCenter = styled.div`
   align-self: center;
 `
 
-export const GridItemColumnLeft = styled.div`
+export const GridItemColumnLeft = styled.div<{ theme?: Theme }>`
   grid-area: d;
-  border: thin solid #edf2f7;
+  border: thin solid ${(p) => p.theme.secondary};
 `
 
-export const GridItemColumnRight = styled.div`
+export const GridItemColumnRight = styled.div<{ theme?: Theme }>`
   grid-area: e;
-  border: thin solid #edf2f7;
+  border: thin solid ${(p) => p.theme.secondary};
 `
 
 export const Text = styled.p`

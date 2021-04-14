@@ -4,7 +4,7 @@ export type Option = {
 }
 
 export type Theme = {
-  primary?: string
+  headerBgColor?: string
   secondary?: string
   textColor?: string
   columnBgColor?: string

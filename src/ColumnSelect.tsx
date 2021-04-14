@@ -46,10 +46,10 @@ const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
 
   const customTheme = Object.assign(
     {
-      primary: '#0f52ba',
-      secondary: '#ffdf00',
+      headerBgColor: '#d6b1ff',
+      secondary: '#cfa4ff',
       columnBgColor: '#CBD5E0',
-      buttonBgColor: '#CBD5E0'
+      buttonBgColor: '#CBD5E0',
     },
     theme
   )
