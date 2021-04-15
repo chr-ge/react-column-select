@@ -37,6 +37,7 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@rollup/plugin-node-resolve": "^11.2.1",
+    "@storybook/addon-a11y": "^6.2.8",
     "@storybook/addon-actions": "^6.2.7",
     "@storybook/addon-essentials": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
