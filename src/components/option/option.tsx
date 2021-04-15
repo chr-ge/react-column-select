@@ -30,6 +30,7 @@ const Option: FC<OptionProps> = ({
 }) => {
   return (
     <Row
+      aria-label={label}
       onClick={onClick}
       onDoubleClick={onDoubleClick}
       isSelected={isSelected}

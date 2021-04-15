@@ -53,8 +53,8 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <StyledButton
-      onClick={onClick}
       aria-label={label}
+      onClick={onClick}
       marginTop={marginTop}
       disabled={isDisabled}
       aria-disabled={isDisabled}

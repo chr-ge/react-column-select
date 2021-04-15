@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { KeyboardEvent } from 'react'
 import {
   Grid,
   GridItemHeaderLeft,
@@ -51,6 +51,22 @@ interface ContainerProps {
    */
   selected: OptionType[]
   /**
+   * The function to go to next option.
+   */
+  onNext: () => void
+  /**
+   * The function to go to previous option.
+   */
+  onPrevious: () => void
+  /**
+   * Disable double clicking to add/remove a list option.
+   */
+  disableDoubleClick: boolean
+  /**
+   * Disable keyboard navigation between list options.
+   */
+  disableKeyboard: boolean
+  /**
    * The react-column-select theme object.
    */
   theme: Theme
@@ -65,6 +81,8 @@ const Container = ({
   removeAll,
   options,
   selected,
+  disableDoubleClick,
+  disableKeyboard,
   theme,
 }: ContainerProps) => {
   return (
@@ -80,7 +98,7 @@ const Container = ({
               label={option.label}
               isSelected={option.value === current?.value}
               onClick={() => select(option)}
-              onDoubleClick={add}
+              onDoubleClick={() => (disableDoubleClick ? null : add())}
             />
           ))}
         </Column>
@@ -99,12 +117,13 @@ const Container = ({
           onClick={addAll}
           rightIcon={<AddAll />}
           marginTop='0.5rem'
+          isDisabled={!options.length}
           theme={theme}
         />
         <Button
           type='button'
           label='Remove'
-          onClick={add}
+          onClick={remove}
           leftIcon={<RemoveIcon />}
           marginTop='1.5rem'
           theme={theme}
@@ -115,6 +134,7 @@ const Container = ({
           onClick={removeAll}
           leftIcon={<RemoveAll />}
           marginTop='0.5rem'
+          isDisabled={!selected.length}
           theme={theme}
         />
       </GridItemCenter>
@@ -129,7 +149,7 @@ const Container = ({
               label={option.label}
               isSelected={option.value === current?.value}
               onClick={() => select(option)}
-              onDoubleClick={remove}
+              onDoubleClick={() => (disableDoubleClick ? null : remove())}
             />
           ))}
         </Column>

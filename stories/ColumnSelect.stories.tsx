@@ -47,5 +47,8 @@ const Template: Story = (args) => {
 
 export const Default = Template.bind({})
 
+export const DisabledDoubleClick = Template.bind({})
+DisabledDoubleClick.args = { ...Default.args, disableDoubleClick: true }
+
 export const DisabledKeyboard = Template.bind({})
 DisabledKeyboard.args = { ...Default.args, disableKeyboard: true }

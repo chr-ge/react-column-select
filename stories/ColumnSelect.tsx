@@ -5,6 +5,7 @@ import './column_select.css'
 
 export interface ColumnSelectProps {
   theme?: Theme
+  disableDoubleClick?: boolean
   disableKeyboard?: boolean
 }
 
@@ -19,6 +20,7 @@ const options = [
 
 const ColumnSelectExample: FC<ColumnSelectProps> = ({
   theme,
+  disableDoubleClick,
   disableKeyboard,
 }) => (
   <article>
@@ -27,6 +29,7 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
       <ColumnSelect
         options={options}
         theme={theme}
+        disableDoubleClick={disableDoubleClick}
         disableKeyboard={disableKeyboard}
       />
     </section>

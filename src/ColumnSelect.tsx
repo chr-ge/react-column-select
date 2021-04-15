@@ -8,12 +8,27 @@ interface ColumnSelectProps {
    */
   options: Option[]
   /**
+   * Disable double clicking to add/remove a list option.
+   * @default false
+   */
+  disableDoubleClick?: boolean
+  /**
+   * Disable keyboard navigation on the list of options.
+   * @default false
+   */
+  disableKeyboard?: boolean
+  /**
    * The react-column-select theme object.
    */
   theme?: Theme
 }
 
-const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
+const ColumnSelect = ({
+  options,
+  theme,
+  disableDoubleClick = false,
+  disableKeyboard = false,
+}: ColumnSelectProps) => {
   const [selectOptions, setSelectOptions] = useState<Option[]>(options)
   const [current, setCurrent] = useState<Option>(options[0])
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
@@ -48,6 +63,7 @@ const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
     {
       headerBgColor: '#d6b1ff',
       secondary: '#cfa4ff',
+      textColor: '#000000',
       columnBgColor: '#CBD5E0',
       buttonBgColor: '#CBD5E0',
     },
@@ -64,6 +80,8 @@ const ColumnSelect = ({ options, theme }: ColumnSelectProps) => {
       removeAll={removeAll}
       options={selectOptions}
       selected={selectedOptions}
+      disableDoubleClick={disableDoubleClick}
+      disableKeyboard={disableKeyboard}
       theme={customTheme}
     />
   )
