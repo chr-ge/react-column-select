@@ -27,6 +27,11 @@ interface ButtonProps {
    */
   type?: 'button' | 'reset' | 'submit'
   /**
+   * Is the button disabled?.
+   * @default false
+   */
+  isDisabled?: boolean
+  /**
    * The react-column-select theme object.
    */
   theme: Theme
@@ -42,6 +47,7 @@ const Button: FC<ButtonProps> = ({
   label,
   marginTop,
   type = 'button',
+  isDisabled,
   onClick,
   theme,
 }) => {
@@ -50,6 +56,8 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
       aria-label={label}
       marginTop={marginTop}
+      disabled={isDisabled}
+      aria-disabled={isDisabled}
       theme={theme}
       type={type}
     >

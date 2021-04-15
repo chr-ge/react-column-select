@@ -19,7 +19,7 @@ export const GridItemHeaderLeft = styled.div<{ theme?: Theme }>`
   grid-area: a;
   display: flex;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
   border-width: thin;
   background-color: ${(p) => p.theme.headerBgColor};
 `
@@ -28,7 +28,7 @@ export const GridItemHeaderRight = styled.div<{ theme?: Theme }>`
   grid-area: c;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   border-width: thin;
   background-color: ${(p) => p.theme.headerBgColor};
 `
