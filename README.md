@@ -17,3 +17,12 @@ yarn add react-column-select
 
 npm install react-column-select
 ```
+
+## ⚙️ Props
+
+| name               | type             | isRequired    | default           | description                                                           |
+| ---                | ---              | ---           | ---               | ---                           |
+| `options`            | array           | ✔             | N/A               | available select options      |
+| `theme`            | object           | ✖             | {}               | the color theme      |
+| `disableDoubleClick`            | boolean           | ✖             | false               | disable double click to add/remove an option       |
+| `disableKeyboard`           | boolean | ✖             | false               | disable navigation the select options with keyboard   |
