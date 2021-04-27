@@ -59,6 +59,31 @@ const ColumnSelect = ({
     setSelectedOptions([])
   }
 
+  const handleNextOptions = () => {
+    const currentIndex = selectOptions.findIndex(
+      (o) => o.value === current.value
+    )
+
+    if (currentIndex !== selectOptions.length - 1) {
+      setCurrent(selectOptions[currentIndex + 1])
+    }
+  }
+
+  const handlePreviousOptions = () => {
+    const currentIndex = selectOptions.findIndex(
+      (o) => o.value === current.value
+    )
+    if (currentIndex !== 0) {
+      setCurrent(selectOptions[currentIndex - 1])
+    }
+  }
+
+  const handleNextSelected = () => {
+    //if()
+  }
+
+  const handlePreviousSelected = () => {}
+
   const customTheme = Object.assign(
     {
       headerBgColor: '#d6b1ff',
@@ -80,6 +105,8 @@ const ColumnSelect = ({
       removeAll={removeAll}
       options={selectOptions}
       selected={selectedOptions}
+      onNext={handleNextOptions}
+      onPrevious={handlePreviousOptions}
       disableDoubleClick={disableDoubleClick}
       disableKeyboard={disableKeyboard}
       theme={customTheme}

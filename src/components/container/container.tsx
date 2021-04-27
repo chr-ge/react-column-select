@@ -81,16 +81,37 @@ const Container = ({
   removeAll,
   options,
   selected,
+  onNext,
+  onPrevious,
   disableDoubleClick,
   disableKeyboard,
   theme,
 }: ContainerProps) => {
+  
+  const handleKeyPress = (e: KeyboardEvent<HTMLDivElement>) => {
+    const currentActive = document.activeElement
+    
+    if (e.key === 'ArrowDown') {
+      onNext();
+      (currentActive?.nextElementSibling as HTMLElement)?.focus()
+    }
+    if (e.key === 'ArrowUp') {
+      onPrevious();
+      (currentActive?.previousElementSibling as HTMLElement)?.focus()
+    }
+  }
+
   return (
     <Grid>
       <GridItemHeaderLeft theme={theme}>
         <Text>Options</Text>
       </GridItemHeaderLeft>
-      <GridItemColumnLeft theme={theme}>
+      <GridItemColumnLeft
+        theme={theme}
+        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
+          disableKeyboard ? null : handleKeyPress(e)
+        }
+      >
         <Column>
           {options.map((option) => (
             <Option
@@ -141,7 +162,12 @@ const Container = ({
       <GridItemHeaderRight theme={theme}>
         <Text>Selected</Text>
       </GridItemHeaderRight>
-      <GridItemColumnRight theme={theme}>
+      <GridItemColumnRight
+        theme={theme}
+        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
+          disableKeyboard ? null : handleKeyPress(e)
+        }
+      >
         <Column>
           {selected.map((option) => (
             <Option
