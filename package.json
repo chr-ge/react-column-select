@@ -10,7 +10,7 @@
     "lint": "prettier --check \"src/**/*.{ts,tsx}\"",
     "lint:css": "stylelint ./src/**/*style.ts",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "test": "echo 404: Not Found"
   },
   "homepage": "https://github.com/chr-ge/react-column-select",
