@@ -1,4 +1,4 @@
-import React, { KeyboardEvent } from 'react'
+import React, { FC, KeyboardEvent } from 'react'
 import {
   Grid,
   GridItemHeaderLeft,
@@ -8,7 +8,7 @@ import {
   GridItemColumnRight,
   Text,
 } from './container.style'
-import { Option as OptionType, Theme } from '../../types'
+import { Column as ColumnType, Option as OptionType, Theme } from '../../types'
 import Column from '../column/column'
 import Option from '../option/option'
 import Button from '../button/button'
@@ -53,11 +53,11 @@ interface ContainerProps {
   /**
    * The function to go to next option.
    */
-  onNext: () => void
+  onNext: (column: ColumnType) => void
   /**
    * The function to go to previous option.
    */
-  onPrevious: () => void
+  onPrevious: (column: ColumnType) => void
   /**
    * Disable double clicking to add/remove a list option.
    */
@@ -72,7 +72,7 @@ interface ContainerProps {
   theme: Theme
 }
 
-const Container = ({
+const Container: FC<ContainerProps> = ({
   current,
   select,
   add,
@@ -86,18 +86,20 @@ const Container = ({
   disableDoubleClick,
   disableKeyboard,
   theme,
-}: ContainerProps) => {
-  
-  const handleKeyPress = (e: KeyboardEvent<HTMLDivElement>) => {
+}) => {
+  const handleKeyPress = (
+    e: KeyboardEvent<HTMLDivElement>,
+    column: ColumnType
+  ) => {
     const currentActive = document.activeElement
-    
+
     if (e.key === 'ArrowDown') {
-      onNext();
-      (currentActive?.nextElementSibling as HTMLElement)?.focus()
+      onNext(column)
+      ;(currentActive?.nextElementSibling as HTMLElement)?.focus()
     }
     if (e.key === 'ArrowUp') {
-      onPrevious();
-      (currentActive?.previousElementSibling as HTMLElement)?.focus()
+      onPrevious(column)
+      ;(currentActive?.previousElementSibling as HTMLElement)?.focus()
     }
   }
 
@@ -109,7 +111,7 @@ const Container = ({
       <GridItemColumnLeft
         theme={theme}
         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
-          disableKeyboard ? null : handleKeyPress(e)
+          disableKeyboard ? null : handleKeyPress(e, ColumnType.OPTIONS)
         }
       >
         <Column>
@@ -130,6 +132,7 @@ const Container = ({
           onClick={add}
           label='Add'
           rightIcon={<AddIcon />}
+          isDisabled={!options.length}
           theme={theme}
         />
         <Button
@@ -147,6 +150,7 @@ const Container = ({
           onClick={remove}
           leftIcon={<RemoveIcon />}
           marginTop='1.5rem'
+          isDisabled={!selected.length}
           theme={theme}
         />
         <Button
@@ -165,7 +169,7 @@ const Container = ({
       <GridItemColumnRight
         theme={theme}
         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
-          disableKeyboard ? null : handleKeyPress(e)
+          disableKeyboard ? null : handleKeyPress(e, ColumnType.SELECTED)
         }
       >
         <Column>

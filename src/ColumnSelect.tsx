@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Container from './components/container/container'
-import { Option, Theme } from './types'
+import { Option, Theme, Column } from './types'
 
 interface ColumnSelectProps {
   /**
@@ -59,30 +59,30 @@ const ColumnSelect = ({
     setSelectedOptions([])
   }
 
-  const handleNextOptions = () => {
-    const currentIndex = selectOptions.findIndex(
+  const handleNext = (column: Column) => {
+    const isOptions = column === Column.OPTIONS
+    const options = isOptions ? selectOptions : selectedOptions
+
+    const currentIndex = options.findIndex(
       (o) => o.value === current.value
     )
 
-    if (currentIndex !== selectOptions.length - 1) {
-      setCurrent(selectOptions[currentIndex + 1])
+    if (currentIndex !== options.length - 1) {
+      setCurrent(options[currentIndex + 1])
     }
   }
 
-  const handlePreviousOptions = () => {
-    const currentIndex = selectOptions.findIndex(
+  const handlePrevious = (column: Column) => {
+    const isOptions = column === Column.OPTIONS
+    const options = isOptions ? selectOptions : selectedOptions
+    
+    const currentIndex = options.findIndex(
       (o) => o.value === current.value
     )
     if (currentIndex !== 0) {
-      setCurrent(selectOptions[currentIndex - 1])
+      setCurrent(options[currentIndex - 1])
     }
   }
-
-  const handleNextSelected = () => {
-    //if()
-  }
-
-  const handlePreviousSelected = () => {}
 
   const customTheme = Object.assign(
     {
@@ -105,8 +105,8 @@ const ColumnSelect = ({
       removeAll={removeAll}
       options={selectOptions}
       selected={selectedOptions}
-      onNext={handleNextOptions}
-      onPrevious={handlePreviousOptions}
+      onNext={handleNext}
+      onPrevious={handlePrevious}
       disableDoubleClick={disableDoubleClick}
       disableKeyboard={disableKeyboard}
       theme={customTheme}

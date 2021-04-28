@@ -10,3 +10,8 @@ export type Theme = {
   columnBgColor?: string
   buttonBgColor?: string
 }
+
+export enum Column {
+  OPTIONS = 'OPTIONS',
+  SELECTED = 'SELECTED'
+}
