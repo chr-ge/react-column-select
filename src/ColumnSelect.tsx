@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import Container from './components/container/container'
 import { Option, Theme, Column } from './types'
 
@@ -23,12 +23,12 @@ interface ColumnSelectProps {
   theme?: Theme
 }
 
-const ColumnSelect = ({
+const ColumnSelect: FC<ColumnSelectProps> = ({
   options,
   theme,
   disableDoubleClick = false,
   disableKeyboard = false,
-}: ColumnSelectProps) => {
+}) => {
   const [selectOptions, setSelectOptions] = useState<Option[]>(options)
   const [current, setCurrent] = useState<Option>(options[0])
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
