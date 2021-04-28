@@ -1,6 +1,6 @@
 # React Column Select
 ![npm](https://img.shields.io/npm/v/react-column-select)
-![NPM](https://img.shields.io/npm/l/react-column-select)
+![GitHub](https://img.shields.io/github/license/chr-ge/react-column-select)
 [![Depfu](https://badges.depfu.com/badges/c540bb2dbd4e634a557231ecd335474e/overview.svg)](https://depfu.com/repos/github/chr-ge/react-column-select?project_id=24188)
 
 ## 🚀 Features
