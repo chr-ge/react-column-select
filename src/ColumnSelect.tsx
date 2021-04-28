@@ -60,8 +60,8 @@ const ColumnSelect = ({
   }
 
   const handleNext = (column: Column) => {
-    const isOptions = column === Column.OPTIONS
-    const options = isOptions ? selectOptions : selectedOptions
+    const isOptionsCol = column === Column.OPTIONS
+    const options = isOptionsCol ? selectOptions : selectedOptions
 
     const currentIndex = options.findIndex(
       (o) => o.value === current.value
@@ -73,8 +73,8 @@ const ColumnSelect = ({
   }
 
   const handlePrevious = (column: Column) => {
-    const isOptions = column === Column.OPTIONS
-    const options = isOptions ? selectOptions : selectedOptions
+    const isOptionsCol = column === Column.OPTIONS
+    const options = isOptionsCol ? selectOptions : selectedOptions
     
     const currentIndex = options.findIndex(
       (o) => o.value === current.value
