@@ -1,8 +1,8 @@
 import typescript from 'rollup-plugin-typescript2'
-import resolve from '@rollup/plugin-node-resolve';
-import sourceMaps from 'rollup-plugin-sourcemaps';
+import resolve from '@rollup/plugin-node-resolve'
+import sourceMaps from 'rollup-plugin-sourcemaps'
 import { terser } from 'rollup-plugin-terser'
-import svgr from '@svgr/rollup';
+import svgr from '@svgr/rollup'
 import pkg from './package.json'
 
 const banner = `/*
@@ -11,7 +11,7 @@ const banner = `/*
  * v${pkg.version}
  * ${pkg.license} License
  */
-`;
+`
 
 export default {
   input: 'src/index.ts',
@@ -19,21 +19,17 @@ export default {
     {
       file: pkg.main,
       name: pkg.name,
-      format: 'umd',
+      format: 'cjs',
       strict: true,
       exports: 'named',
-      globals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-      },
-      banner
+      banner,
     },
     {
       file: pkg.module,
       format: 'esm',
       strict: true,
       exports: 'named',
-      banner
+      banner,
     },
   ],
   external: [
