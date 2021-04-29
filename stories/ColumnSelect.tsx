@@ -28,6 +28,8 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
       <h2>Column Select</h2>
       <ColumnSelect
         options={options}
+        leftHeader="Available Pieces"
+        rightHeader="Selected Pieces"
         theme={theme}
         disableDoubleClick={disableDoubleClick}
         disableKeyboard={disableKeyboard}

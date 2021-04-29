@@ -25,6 +25,8 @@ npm install react-column-select
 | name               | type             | isRequired    | default           | description                                                           |
 | ---                | ---              | ---           | ---               | ---                           |
 | `options`            | array           | ✔             | N/A               | available select options      |
+| `leftHeader`            | string           | ✖             | 'Options'               | the left column header      |
+| `rightHeader`            | string           | ✖             | 'Selected'               | the right column header      |
 | `theme`            | object           | ✖             | {}               | the color theme      |
 | `disableDoubleClick`            | boolean           | ✖             | false               | disable double click to add/remove an option       |
 | `disableKeyboard`           | boolean | ✖             | false               | disable navigation the select options with keyboard   |

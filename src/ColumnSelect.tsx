@@ -8,6 +8,16 @@ interface ColumnSelectProps {
    */
   options: Option[]
   /**
+   * The header text of the left column.
+   * @default 'Options'
+   */
+  leftHeader?: string
+  /**
+   * The header text of the right column.
+   * @default 'Selected'
+   */
+  rightHeader?: string
+  /**
    * Disable double clicking to add/remove a list option.
    * @default false
    */
@@ -25,9 +35,11 @@ interface ColumnSelectProps {
 
 const ColumnSelect: FC<ColumnSelectProps> = ({
   options,
+  leftHeader,
+  rightHeader,
   theme,
-  disableDoubleClick = false,
-  disableKeyboard = false,
+  disableDoubleClick,
+  disableKeyboard,
 }) => {
   const [selectOptions, setSelectOptions] = useState<Option[]>(options)
   const [current, setCurrent] = useState<Option>(options[0])
@@ -93,6 +105,8 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
 
   return (
     <Container
+      leftHeader={leftHeader}
+      rightHeader={rightHeader}
       current={current}
       select={(option: Option) => setCurrent(option)}
       add={add}
