@@ -1,6 +1,6 @@
 {
   "name": "react-column-select",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React component to select items from a column list.",
   "scripts": {
     "build": "rollup -c",
