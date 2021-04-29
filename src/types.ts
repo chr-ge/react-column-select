@@ -13,5 +13,5 @@ export type Theme = {
 
 export enum Column {
   OPTIONS = 'OPTIONS',
-  SELECTED = 'SELECTED'
+  SELECTED = 'SELECTED',
 }

@@ -28,3 +28,7 @@ jobs:
       run: yarn
     - name: Run tests
       run: yarn test
+    - name: Run eslint
+      run: yarn eslint
+    - name: Check format
+      run: yarn lint

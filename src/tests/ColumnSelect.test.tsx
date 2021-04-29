@@ -1,5 +1,5 @@
 import React from 'react'
-import "@testing-library/jest-dom/extend-expect"
+import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 import { toHaveNoViolations, axe } from 'jest-axe'
 import ColumnSelect from '../ColumnSelect'

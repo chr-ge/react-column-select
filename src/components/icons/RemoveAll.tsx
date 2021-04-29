@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 /**
  * Icons by Heroicons
  * https://github.com/tailwindlabs/heroicons
  */
 
-const RemoveAll = () => (
+const RemoveAll: FC = () => (
   <svg
     stroke='currentColor'
     fill='currentColor'

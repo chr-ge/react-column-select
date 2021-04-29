@@ -63,9 +63,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     const isOptionsCol = column === Column.OPTIONS
     const options = isOptionsCol ? selectOptions : selectedOptions
 
-    const currentIndex = options.findIndex(
-      (o) => o.value === current.value
-    )
+    const currentIndex = options.findIndex((o) => o.value === current.value)
 
     if (currentIndex !== options.length - 1) {
       setCurrent(options[currentIndex + 1])
@@ -75,10 +73,8 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   const handlePrevious = (column: Column) => {
     const isOptionsCol = column === Column.OPTIONS
     const options = isOptionsCol ? selectOptions : selectedOptions
-    
-    const currentIndex = options.findIndex(
-      (o) => o.value === current.value
-    )
+
+    const currentIndex = options.findIndex((o) => o.value === current.value)
     if (currentIndex !== 0) {
       setCurrent(options[currentIndex - 1])
     }
