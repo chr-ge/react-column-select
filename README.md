@@ -42,4 +42,4 @@ Below is the default theme, change the values that you want to customize:
 ```
 
 ## License
-Distributed under the MIT license. See LICENSE for more information.
+Distributed under the MIT license. See `LICENSE` for more information.
