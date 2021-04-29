@@ -40,3 +40,6 @@ Below is the default theme, change the values that you want to customize:
     buttonBgColor: '#CBD5E0',
 }
 ```
+
+## License
+Distributed under the MIT license. See LICENSE for more information.
