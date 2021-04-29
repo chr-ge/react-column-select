@@ -30,7 +30,7 @@ npm install react-column-select
 
 ## Theme Customization
 Below is the default theme:
-```json
+```jsx
 {
     headerBgColor: '#d6b1ff',
     secondary: '#cfa4ff',
