@@ -16,6 +16,14 @@ import { AddIcon, AddAll, RemoveIcon, RemoveAll } from '../icons'
 
 interface ContainerProps {
   /**
+   * The header text of the left column.
+   */
+  leftHeader?: string
+  /**
+   * The header text of the right column.
+   */
+  rightHeader?: string
+  /**
    * The currently selected option.
    */
   current: OptionType
@@ -58,11 +66,11 @@ interface ContainerProps {
   /**
    * Disable double clicking to add/remove a list option.
    */
-  disableDoubleClick: boolean
+  disableDoubleClick?: boolean
   /**
    * Disable keyboard navigation between list options.
    */
-  disableKeyboard: boolean
+  disableKeyboard?: boolean
   /**
    * The react-column-select theme object.
    */
@@ -70,6 +78,8 @@ interface ContainerProps {
 }
 
 const Container: FC<ContainerProps> = ({
+  leftHeader,
+  rightHeader,
   current,
   select,
   add,
@@ -103,7 +113,7 @@ const Container: FC<ContainerProps> = ({
   return (
     <Grid>
       <GridItemHeaderLeft theme={theme}>
-        <Text>Options</Text>
+        <Text>{leftHeader || 'Options'}</Text>
       </GridItemHeaderLeft>
       <GridItemColumnLeft
         theme={theme}
@@ -161,7 +171,7 @@ const Container: FC<ContainerProps> = ({
         />
       </GridItemCenter>
       <GridItemHeaderRight theme={theme}>
-        <Text>Selected</Text>
+        <Text>{rightHeader || 'Selected'}</Text>
       </GridItemHeaderRight>
       <GridItemColumnRight
         theme={theme}
