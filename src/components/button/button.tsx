@@ -63,9 +63,7 @@ const Button: FC<ButtonProps> = ({
     >
       {leftIcon && <ButtonIcon margin='0 0.25rem 0 0'>{leftIcon}</ButtonIcon>}
       {label}
-      {rightIcon && (
-        <ButtonIcon margin='0  0 0 0.25rem'>{rightIcon}</ButtonIcon>
-      )}
+      {rightIcon && <ButtonIcon margin='0 0 0 0.25rem'>{rightIcon}</ButtonIcon>}
     </StyledButton>
   )
 }

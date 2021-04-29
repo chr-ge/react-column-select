@@ -12,10 +12,7 @@ import { Column as ColumnType, Option as OptionType, Theme } from '../../types'
 import Column from '../column/column'
 import Option from '../option/option'
 import Button from '../button/button'
-import AddIcon from '../icons/AddIcon'
-import AddAll from '../icons/AddAll'
-import RemoveIcon from '../icons/RemoveIcon'
-import RemoveAll from '../icons/RemoveAll'
+import { AddIcon, AddAll, RemoveIcon, RemoveAll } from '../icons'
 
 interface ContainerProps {
   /**
