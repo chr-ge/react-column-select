@@ -2,6 +2,7 @@
 # React Column Select
 [![NPM](https://img.shields.io/npm/v/react-column-select)](https://www.npmjs.com/package/react-column-select)
 ![GitHub](https://img.shields.io/github/license/chr-ge/react-column-select)
+[![SIZE](https://badgen.net/bundlephobia/min/react-column-select)](https://bundlephobia.com/result?p=react-column-select)
 [![Depfu](https://badges.depfu.com/badges/c540bb2dbd4e634a557231ecd335474e/overview.svg)](https://depfu.com/repos/github/chr-ge/react-column-select?project_id=24188)
 
 ## 🚀 Features

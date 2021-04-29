@@ -19,7 +19,6 @@ export default {
   output: [
     {
       file: pkg.main,
-      name: pkg.name,
       format: 'cjs',
       strict: true,
       exports: 'named',
@@ -27,7 +26,7 @@ export default {
     },
     {
       file: pkg.module,
-      format: 'esm',
+      format: 'es',
       strict: true,
       exports: 'named',
       banner,

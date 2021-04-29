@@ -4,14 +4,17 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+  ],
   plugins: ['react', '@typescript-eslint'],
   parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
-    sourceType: 'module',
   },
   rules: {},
   overrides: [
@@ -24,7 +27,7 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: 'latest',
+      version: 'detect',
     },
   },
 }
