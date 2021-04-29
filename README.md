@@ -27,3 +27,15 @@ npm install react-column-select
 | `theme`            | object           | ✖             | {}               | the color theme      |
 | `disableDoubleClick`            | boolean           | ✖             | false               | disable double click to add/remove an option       |
 | `disableKeyboard`           | boolean | ✖             | false               | disable navigation the select options with keyboard   |
+
+## Theme Customization
+Below is the default theme:
+```json
+{
+    headerBgColor: '#d6b1ff',
+    secondary: '#cfa4ff',
+    textColor: '#000000',
+    columnBgColor: '#CBD5E0',
+    buttonBgColor: '#CBD5E0',
+},
+```
