@@ -28,8 +28,8 @@ npm install react-column-select
 | `disableDoubleClick`            | boolean           | ✖             | false               | disable double click to add/remove an option       |
 | `disableKeyboard`           | boolean | ✖             | false               | disable navigation the select options with keyboard   |
 
-## Theme Customization
-Below is the default theme:
+## 🎨 Theme Customization
+Below is the default theme, change the values that you want to customize:
 ```json
 {
     headerBgColor: '#d6b1ff',
