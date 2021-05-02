@@ -11,6 +11,6 @@ export const Row = styled.button<{ isSelected: boolean }>`
   cursor: pointer;
 
   &:hover {
-    font-weight: 550;
+    background-color: #edf2f775;
   }
 `
