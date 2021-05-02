@@ -75,7 +75,7 @@ Below is the default theme, change the values that you want to customize:
 ```jsx
 {
     headerBgColor: '#d6b1ff',
-    secondary: '#cfa4ff',
+    columnBorderColor: '#cfa4ff',
     textColor: '#000000',
     columnBgColor: '#CBD5E0',
     buttonBgColor: '#CBD5E0',

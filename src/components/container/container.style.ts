@@ -40,12 +40,12 @@ export const GridItemCenter = styled.div`
 
 export const GridItemColumnLeft = styled.div<{ theme?: Theme }>`
   grid-area: d;
-  border: thin solid ${(p) => p.theme.secondary};
+  border: thin solid ${(p) => p.theme.columnBorderColor};
 `
 
 export const GridItemColumnRight = styled.div<{ theme?: Theme }>`
   grid-area: e;
-  border: thin solid ${(p) => p.theme.secondary};
+  border: thin solid ${(p) => p.theme.columnBorderColor};
 `
 
 export const Text = styled.p`
