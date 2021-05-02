@@ -16,7 +16,7 @@ interface ColumnSelectProps {
   /**
    * The function called on change.
    */
-  onChange: (values: OptionsType, actionMeta: ActionMeta) => void
+  onChange?: (values: OptionsType, actionMeta: ActionMeta) => void
   /**
    * Set the initial selected values.
    */
