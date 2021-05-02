@@ -1,17 +1,22 @@
-export type Option = {
+export type OptionType = {
   value: string | number
   label: string
 }
 
+export type OptionsType = Array<OptionType>
+
 export type Theme = {
   headerBgColor?: string
-  secondary?: string
+  columnBorderColor?: string
   textColor?: string
   columnBgColor?: string
   buttonBgColor?: string
 }
 
-export enum Column {
-  OPTIONS = 'OPTIONS',
-  SELECTED = 'SELECTED',
+export type ColumnType = 'options' | 'selected'
+
+export type ActionTypes = 'add' | 'add-all' | 'remove' | 'remove-all'
+
+export type ActionMeta = {
+  action: ActionTypes
 }
