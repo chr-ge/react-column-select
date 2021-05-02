@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import ColumnSelect from '../src'
 
 const options = [
@@ -10,10 +10,13 @@ const options = [
   { value: 'king', label: 'King' },
 ]
 
-const ColumnSelectExample = () => {
+const ColumnSelectExample: FC = () => {
   return (
     <div>
-      <ColumnSelect options={options} />
+      <ColumnSelect
+        options={options}
+        onChange={(values) => console.info(values)}
+      />
     </div>
   )
 }
