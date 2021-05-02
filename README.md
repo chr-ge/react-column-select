@@ -1,5 +1,3 @@
-# _Package Under Development_
-
 # React Column Select
 
 [![NPM](https://badgen.net/npm/v/react-column-select)](https://www.npmjs.com/package/react-column-select)
