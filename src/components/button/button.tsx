@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react'
-import { Theme } from '../../types'
+import type { Theme } from '../../types'
 import { Button as StyledButton, ButtonIcon } from './button.styles'
 
 interface ButtonProps {
