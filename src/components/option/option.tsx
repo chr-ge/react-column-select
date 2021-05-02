@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Option as OptionType } from '../../types'
+import { OptionType } from '../../types'
 import { Row } from './option.style'
 
 interface OptionProps {
