@@ -8,7 +8,7 @@ import {
   GridItemColumnRight,
   Text,
 } from './container.style'
-import { Column as ColumnType, Option as OptionType, Theme } from '../../types'
+import type { ColumnType, OptionType, OptionsType, Theme } from '../../types'
 import Column from '../column/column'
 import Option from '../option/option'
 import Button from '../button/button'
@@ -50,11 +50,11 @@ interface ContainerProps {
   /**
    * The available select options.
    */
-  options: OptionType[]
+  options: OptionsType
   /**
    * The selected options.
    */
-  selected: OptionType[]
+  selected: OptionsType
   /**
    * The function to go to next option.
    */
@@ -118,7 +118,7 @@ const Container: FC<ContainerProps> = ({
       <GridItemColumnLeft
         theme={theme}
         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
-          disableKeyboard ? null : handleKeyPress(e, ColumnType.OPTIONS)
+          disableKeyboard ? null : handleKeyPress(e, 'options')
         }
       >
         <Column>
@@ -176,7 +176,7 @@ const Container: FC<ContainerProps> = ({
       <GridItemColumnRight
         theme={theme}
         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
-          disableKeyboard ? null : handleKeyPress(e, ColumnType.SELECTED)
+          disableKeyboard ? null : handleKeyPress(e, 'selected')
         }
       >
         <Column>

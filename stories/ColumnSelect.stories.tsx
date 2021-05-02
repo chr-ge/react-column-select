@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import ColumnSelect from './ColumnSelect'
+import ColumnSelect, { options } from './ColumnSelect'
 
 export default {
   title: 'Example/Column Select',
@@ -13,7 +13,7 @@ export default {
         category: 'Colors',
       },
     },
-    secondary: {
+    columnBorderColor: {
       control: 'color',
       table: {
         category: 'Colors',
@@ -37,7 +37,7 @@ export default {
 const Template: Story = (args) => {
   const theme = {
     headerBgColor: args.headerBgColor ?? '#d6b1ff',
-    secondary: args.secondary ?? '#cfa4ff',
+    columnBorderColor: args.secondary ?? '#cfa4ff',
     textColor: '#000000',
     columnBgColor: args.columnBgColor ?? '#CBD5E0',
     buttonBgColor: args.buttonBgColor ?? '#CBD5E0',
@@ -52,3 +52,6 @@ DisabledDoubleClick.args = { ...Default.args, disableDoubleClick: true }
 
 export const DisabledKeyboard = Template.bind({})
 DisabledKeyboard.args = { ...Default.args, disableKeyboard: true }
+
+export const DefaultValues = Template.bind({})
+DefaultValues.args = { ...Default.args, defaultValue: [options[1], options[2]] }

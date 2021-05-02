@@ -1,12 +1,26 @@
 import React, { FC, useState } from 'react'
 import Container from './components/container/container'
-import { Option, Theme, Column } from './types'
+import type {
+  OptionType,
+  Theme,
+  ColumnType,
+  OptionsType,
+  ActionMeta,
+} from './types'
 
 interface ColumnSelectProps {
   /**
    * The array of available select options.
    */
-  options: Option[]
+  options: OptionsType
+  /**
+   * The function called on change.
+   */
+  onChange: (values: OptionsType, actionMeta: ActionMeta) => void
+  /**
+   * Set the initial selected values.
+   */
+  defaultValue?: OptionsType
   /**
    * The header text of the left column.
    * @default 'Options'
@@ -35,26 +49,28 @@ interface ColumnSelectProps {
 
 const ColumnSelect: FC<ColumnSelectProps> = ({
   options,
+  onChange,
+  defaultValue = [],
   leftHeader,
   rightHeader,
   theme,
   disableDoubleClick,
   disableKeyboard,
 }) => {
-  const [selectOptions, setSelectOptions] = useState<Option[]>(options)
-  const [current, setCurrent] = useState<Option>(options[0])
-  const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
+  const [selectOptions, setSelectOptions] = useState<OptionsType>(
+    options.filter((o) => !defaultValue.find((d) => d.value === o.value))
+  )
+  const [current, setCurrent] = useState<OptionType>(options[0])
+  const [selectedOptions, setSelectedOptions] = useState<OptionsType>(
+    defaultValue
+  )
 
   const add = () => {
     if (selectedOptions.find((c) => c.value === current.value)) return
     setSelectOptions(selectOptions.filter((o) => o.value !== current.value))
     setSelectedOptions([...selectedOptions, current])
-  }
 
-  const remove = () => {
-    if (selectOptions.find((c) => c.value === current.value)) return
-    setSelectedOptions(selectedOptions.filter((o) => o.value !== current.value))
-    setSelectOptions([...selectOptions, current])
+    onChange(selectedOptions, { action: 'add' })
   }
 
   const addAll = () => {
@@ -62,6 +78,16 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     setSelectedOptions([...selectedOptions, ...selectOptions])
     setCurrent(selectOptions[0])
     setSelectOptions([])
+
+    onChange(selectedOptions, { action: 'add-all' })
+  }
+
+  const remove = () => {
+    if (selectOptions.find((c) => c.value === current.value)) return
+    setSelectedOptions(selectedOptions.filter((o) => o.value !== current.value))
+    setSelectOptions([...selectOptions, current])
+
+    onChange(selectedOptions, { action: 'remove' })
   }
 
   const removeAll = () => {
@@ -69,10 +95,12 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     setSelectOptions([...selectOptions, ...selectedOptions])
     setCurrent(selectedOptions[0])
     setSelectedOptions([])
+
+    onChange(selectedOptions, { action: 'remove-all' })
   }
 
-  const handleNext = (column: Column) => {
-    const isOptionsCol = column === Column.OPTIONS
+  const handleNext = (column: ColumnType) => {
+    const isOptionsCol = column === 'options'
     const options = isOptionsCol ? selectOptions : selectedOptions
 
     const currentIndex = options.findIndex((o) => o.value === current.value)
@@ -82,8 +110,8 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     }
   }
 
-  const handlePrevious = (column: Column) => {
-    const isOptionsCol = column === Column.OPTIONS
+  const handlePrevious = (column: ColumnType) => {
+    const isOptionsCol = column === 'options'
     const options = isOptionsCol ? selectOptions : selectedOptions
 
     const currentIndex = options.findIndex((o) => o.value === current.value)
@@ -95,7 +123,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   const customTheme = Object.assign(
     {
       headerBgColor: '#d6b1ff',
-      secondary: '#cfa4ff',
+      columnBorderColor: '#cfa4ff',
       textColor: '#000000',
       columnBgColor: '#CBD5E0',
       buttonBgColor: '#CBD5E0',
@@ -108,7 +136,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       leftHeader={leftHeader}
       rightHeader={rightHeader}
       current={current}
-      select={(option: Option) => setCurrent(option)}
+      select={(option: OptionType) => setCurrent(option)}
       add={add}
       addAll={addAll}
       remove={remove}
