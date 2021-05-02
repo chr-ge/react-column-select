@@ -61,7 +61,7 @@ const HobbiesSelect = () => {
 | name                 | type     | isRequired | default    | description                                         |
 | -------------------- | -------- | ---------- | ---------- | --------------------------------------------------- |
 | `options`            | array    | ✔          | N/A        | available select options                            |
-| `onChange`           | function | ✖          | N/A        | function called when selected values change         |
+| `onChange`           | function | ✔          | N/A        | function called when selected values change         |
 | `defaultValue`       | array    | ✖          | []         | set the initial selected values                     |
 | `leftHeader`         | string   | ✖          | 'Options'  | the left column header                              |
 | `rightHeader`        | string   | ✖          | 'Selected' | the right column header                             |
