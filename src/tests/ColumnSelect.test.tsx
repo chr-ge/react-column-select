@@ -6,8 +6,15 @@ import ColumnSelect from '../ColumnSelect'
 
 expect.extend(toHaveNoViolations)
 
+const options = [
+  { value: '1', label: 'Option1' },
+  { value: '2', label: 'Option2' },
+]
+
 it('passes a11y test', async () => {
-  const container = render(<ColumnSelect options={[]} />).container
+  const container = render(
+    <ColumnSelect options={options} onChange={() => undefined} />
+  ).container
   const results = await axe(container)
   expect(results).toHaveNoViolations()
 })
