@@ -8,6 +8,7 @@ export interface ColumnSelectProps {
   defaultValue?: OptionsType
   disableDoubleClick?: boolean
   disableKeyboard?: boolean
+  max?: number
 }
 
 export const options = [
@@ -22,6 +23,7 @@ export const options = [
 const ColumnSelectExample: FC<ColumnSelectProps> = ({
   theme,
   defaultValue,
+  max,
   disableDoubleClick,
   disableKeyboard,
 }) => {
@@ -38,6 +40,7 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
           leftHeader='Available Pieces'
           rightHeader='Selected Pieces'
           theme={theme}
+          max={max}
           disableDoubleClick={disableDoubleClick}
           disableKeyboard={disableKeyboard}
         />

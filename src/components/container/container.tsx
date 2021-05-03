@@ -56,6 +56,14 @@ interface ContainerProps {
    */
   selected: OptionsType
   /**
+   * Truthy if the selected options >= max allowed options.
+   */
+  isMax: boolean
+  /**
+   * Disables the "add all" button if the available options > max allowed options.
+   */
+  disableAddAll: boolean
+  /**
    * The function to go to next option.
    */
   onNext: (column: ColumnType) => void
@@ -88,6 +96,8 @@ const Container: FC<ContainerProps> = ({
   removeAll,
   options,
   selected,
+  isMax,
+  disableAddAll,
   onNext,
   onPrevious,
   disableDoubleClick,
@@ -139,7 +149,7 @@ const Container: FC<ContainerProps> = ({
           onClick={add}
           label='Add'
           rightIcon={<AddIcon />}
-          isDisabled={!options.length}
+          isDisabled={!options.length || isMax}
           theme={theme}
         />
         <Button
@@ -148,7 +158,7 @@ const Container: FC<ContainerProps> = ({
           onClick={addAll}
           rightIcon={<AddAll />}
           marginTop='0.5rem'
-          isDisabled={!options.length}
+          isDisabled={!options.length || disableAddAll}
           theme={theme}
         />
         <Button

@@ -55,3 +55,6 @@ DisabledKeyboard.args = { ...Default.args, disableKeyboard: true }
 
 export const DefaultValues = Template.bind({})
 DefaultValues.args = { ...Default.args, defaultValue: [options[1], options[2]] }
+
+export const Max = Template.bind({})
+Max.args = { ...Default.args, max: 3 }
