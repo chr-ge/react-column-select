@@ -61,6 +61,7 @@ const HobbiesSelect = () => {
 | `options`            | array    | ✔          | N/A        | available select options                            |
 | `onChange`           | function | ✔          | N/A        | function called when selected values change         |
 | `defaultValue`       | array    | ✖          | []         | set the initial selected values                     |
+| `max`                | number   | ✖          | N/A        | set the max number of options that can be selected  |
 | `leftHeader`         | string   | ✖          | 'Options'  | the left column header                              |
 | `rightHeader`        | string   | ✖          | 'Selected' | the right column header                             |
 | `theme`              | object   | ✖          | {}         | the color theme                                     |

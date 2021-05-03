@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useMemo, useState } from 'react'
 import Container from './components/container/container'
 import type {
   OptionType,
@@ -21,6 +21,10 @@ interface ColumnSelectProps {
    * Set the initial selected values.
    */
   defaultValue?: OptionsType
+  /**
+   * Set the maximum number of options that can be selected.
+   */
+  max?: number
   /**
    * The header text of the left column.
    * @default 'Options'
@@ -51,6 +55,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   options,
   onChange,
   defaultValue = [],
+  max,
   leftHeader,
   rightHeader,
   theme,
@@ -63,6 +68,15 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   const [current, setCurrent] = useState<OptionType>(options[0])
   const [selectedOptions, setSelectedOptions] = useState<OptionsType>(
     defaultValue
+  )
+
+  const isMax = useMemo(() => (max ? selectedOptions.length >= max : false), [
+    selectedOptions,
+  ])
+
+  const disableAddAll = useMemo(
+    () => (max ? selectOptions.length > max : false),
+    [max]
   )
 
   const add = () => {
@@ -143,6 +157,8 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       removeAll={removeAll}
       options={selectOptions}
       selected={selectedOptions}
+      isMax={isMax}
+      disableAddAll={disableAddAll}
       onNext={handleNext}
       onPrevious={handlePrevious}
       disableDoubleClick={disableDoubleClick}
