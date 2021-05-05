@@ -44,7 +44,7 @@ interface ColumnSelectProps {
    * The placeholder string for the search inputs.
    * @default 'Search ...'
    */
-   searchPlaceholder?: string
+  searchPlaceholder?: string
   /**
    * Disable double clicking to add/remove a list option.
    * @default false
