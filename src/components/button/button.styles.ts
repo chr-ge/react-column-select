@@ -12,7 +12,7 @@ export const Button = styled.button<{ marginTop?: string; theme: Theme }>`
   width: 100%;
   border: 0;
   transition: all 250ms;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   border-radius: 0.33rem;
   margin-top: ${(p) => p.marginTop};
   background-color: ${(p) => p.theme.buttonBgColor};
