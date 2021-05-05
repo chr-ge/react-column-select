@@ -80,7 +80,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   )
 
   const add = () => {
-    if (selectedOptions.find((c) => c.value === current.value)) return
+    if (selectedOptions.find((c) => c.value === current.value) || isMax) return
     setSelectOptions(selectOptions.filter((o) => o.value !== current.value))
     setSelectedOptions([...selectedOptions, current])
 
