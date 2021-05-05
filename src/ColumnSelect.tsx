@@ -36,6 +36,16 @@ interface ColumnSelectProps {
    */
   rightHeader?: string
   /**
+   * Enable to make the columns searchable.
+   * @default false
+   */
+  isSearchable?: boolean
+  /**
+   * The placeholder string for the search inputs.
+   * @default 'Search ...'
+   */
+   searchPlaceholder?: string
+  /**
    * Disable double clicking to add/remove a list option.
    * @default false
    */
@@ -58,9 +68,11 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   max,
   leftHeader,
   rightHeader,
-  theme,
+  isSearchable,
+  searchPlaceholder,
   disableDoubleClick,
   disableKeyboard,
+  theme,
 }) => {
   const [selectOptions, setSelectOptions] = useState<OptionsType>(
     options.filter((o) => !defaultValue.find((d) => d.value === o.value))
@@ -141,6 +153,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       textColor: '#000000',
       columnBgColor: '#CBD5E0',
       buttonBgColor: '#CBD5E0',
+      searchFocusBorderColor: '#805Ad5',
     },
     theme
   )
@@ -161,6 +174,8 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       disableAddAll={disableAddAll}
       onNext={handleNext}
       onPrevious={handlePrevious}
+      isSearchable={isSearchable}
+      searchPlaceholder={searchPlaceholder}
       disableDoubleClick={disableDoubleClick}
       disableKeyboard={disableKeyboard}
       theme={customTheme}

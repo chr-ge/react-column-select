@@ -1,11 +1,12 @@
 import React, { FC, useState } from 'react'
 import ColumnSelect from '../src'
-import { OptionsType, Theme } from '../src/types'
+import type { OptionsType, Theme } from '../src/types'
 import './column_select.css'
 
 export interface ColumnSelectProps {
   theme?: Theme
   defaultValue?: OptionsType
+  isSearchable?: boolean
   disableDoubleClick?: boolean
   disableKeyboard?: boolean
   max?: number
@@ -24,6 +25,7 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
   theme,
   defaultValue,
   max,
+  isSearchable,
   disableDoubleClick,
   disableKeyboard,
 }) => {
@@ -41,6 +43,7 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
           rightHeader='Selected Pieces'
           theme={theme}
           max={max}
+          isSearchable={isSearchable}
           disableDoubleClick={disableDoubleClick}
           disableKeyboard={disableKeyboard}
         />
