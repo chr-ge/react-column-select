@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEvent } from 'react'
+import React, { FC, useState, KeyboardEvent, ChangeEvent, useMemo } from 'react'
 import {
   Grid,
   GridItemHeaderLeft,
@@ -6,6 +6,7 @@ import {
   GridItemCenter,
   GridItemColumnLeft,
   GridItemColumnRight,
+  Input,
   Text,
 } from './container.style'
 import type { ColumnType, OptionType, OptionsType, Theme } from '../../types'
@@ -72,6 +73,14 @@ interface ContainerProps {
    */
   onPrevious: (column: ColumnType) => void
   /**
+   * Enable to make the columns searchable.
+   */
+  isSearchable?: boolean
+  /**
+   * The placeholder string for the search inputs.
+   */
+  searchPlaceholder?: string
+  /**
    * Disable double clicking to add/remove a list option.
    */
   disableDoubleClick?: boolean
@@ -100,10 +109,18 @@ const Container: FC<ContainerProps> = ({
   disableAddAll,
   onNext,
   onPrevious,
+  isSearchable = false,
+  searchPlaceholder,
   disableDoubleClick,
   disableKeyboard,
   theme,
 }) => {
+  const [search, setSearch] = useState({ left: '', right: '' })
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch({ ...search, [e.target.name]: e.target.value })
+  }
+
   const handleKeyPress = (
     e: KeyboardEvent<HTMLDivElement>,
     column: ColumnType
@@ -120,6 +137,30 @@ const Container: FC<ContainerProps> = ({
     }
   }
 
+  const filteredOptions = useMemo(
+    () =>
+      isSearchable
+        ? options.filter((o) =>
+            o.label
+              .toLocaleLowerCase()
+              .includes(search.left.toLocaleLowerCase())
+          )
+        : options,
+    [options, search.left]
+  )
+
+  const filteredSelected = useMemo(
+    () =>
+      isSearchable
+        ? selected.filter((s) =>
+            s.label
+              .toLocaleLowerCase()
+              .includes(search.right.toLocaleLowerCase())
+          )
+        : selected,
+    [selected, search.right]
+  )
+
   return (
     <Grid>
       <GridItemHeaderLeft theme={theme}>
@@ -131,8 +172,18 @@ const Container: FC<ContainerProps> = ({
           disableKeyboard ? null : handleKeyPress(e, 'options')
         }
       >
-        <Column>
-          {options.map((option) => (
+        {isSearchable && (
+          <Input
+            name='left'
+            placeholder={searchPlaceholder ?? 'Search ...'}
+            value={search.left}
+            onChange={handleOnChange}
+            type='search'
+            theme={theme}
+          />
+        )}
+        <Column isSearchable={isSearchable}>
+          {filteredOptions.map((option) => (
             <Option
               key={`l-${option.value}`}
               label={option.label}
@@ -189,8 +240,18 @@ const Container: FC<ContainerProps> = ({
           disableKeyboard ? null : handleKeyPress(e, 'selected')
         }
       >
-        <Column>
-          {selected.map((option) => (
+        {isSearchable && (
+          <Input
+            name='right'
+            placeholder={searchPlaceholder ?? 'Search ...'}
+            value={search.right}
+            onChange={handleOnChange}
+            type='search'
+            theme={theme}
+          />
+        )}
+        <Column isSearchable={isSearchable}>
+          {filteredSelected.map((option) => (
             <Option
               key={`r-${option.value}`}
               label={option.label}

@@ -41,6 +41,7 @@ const Template: Story = (args) => {
     textColor: '#000000',
     columnBgColor: args.columnBgColor ?? '#CBD5E0',
     buttonBgColor: args.buttonBgColor ?? '#CBD5E0',
+    searchFocusBorderColor: args.searchFocusBorderColor ?? '#805Ad5',
   }
   return <ColumnSelect theme={theme} {...args} />
 }
@@ -58,3 +59,10 @@ DefaultValues.args = { ...Default.args, defaultValue: [options[1], options[2]] }
 
 export const Max = Template.bind({})
 Max.args = { ...Default.args, max: 3 }
+
+export const Searchable = Template.bind({})
+Searchable.args = {
+  ...Default.args,
+  isSearchable: true,
+  searchFocusBorderColor: '',
+}

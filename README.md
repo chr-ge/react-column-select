@@ -56,17 +56,19 @@ const HobbiesSelect = () => {
 
 ## ⚙️ Props
 
-| name                 | type     | isRequired | default    | description                                         |
-| -------------------- | -------- | ---------- | ---------- | --------------------------------------------------- |
-| `options`            | array    | ✔          | N/A        | available select options                            |
-| `onChange`           | function | ✔          | N/A        | function called when selected values change         |
-| `defaultValue`       | array    | ✖          | []         | set the initial selected values                     |
-| `max`                | number   | ✖          | N/A        | set the max number of options that can be selected  |
-| `leftHeader`         | string   | ✖          | 'Options'  | the left column header                              |
-| `rightHeader`        | string   | ✖          | 'Selected' | the right column header                             |
-| `theme`              | object   | ✖          | {}         | the color theme                                     |
-| `disableDoubleClick` | boolean  | ✖          | false      | disable double click to add/remove an option        |
-| `disableKeyboard`    | boolean  | ✖          | false      | disable navigation the select options with keyboard |
+| name                 | type     | isRequired | default      | description                                         |
+| -------------------- | -------- | ---------- | ------------ | --------------------------------------------------- |
+| `options`            | array    | ✔          | N/A          | available select options                            |
+| `onChange`           | function | ✔          | N/A          | function called when selected values change         |
+| `defaultValue`       | array    | ✖          | []           | set the initial selected values                     |
+| `max`                | number   | ✖          | N/A          | set the max number of options that can be selected  |
+| `leftHeader`         | string   | ✖          | 'Options'    | the left column header                              |
+| `rightHeader`        | string   | ✖          | 'Selected'   | the right column headers                            |
+| `isSearchable`       | boolean  | ✖          | false        | enables searching                                   |
+| `searchPlaceholder`  | string   | ✖          | 'Search ...' | the placeholder string for the search inputs        |
+| `theme`              | object   | ✖          | {}           | the color theme                                     |
+| `disableDoubleClick` | boolean  | ✖          | false        | disable double click to add/remove an option        |
+| `disableKeyboard`    | boolean  | ✖          | false        | disable navigation the select options with keyboard |
 
 ## 🎨 Theme Customization
 
@@ -79,6 +81,7 @@ Below is the default theme, change the values that you want to customize:
     textColor: '#000000',
     columnBgColor: '#CBD5E0',
     buttonBgColor: '#CBD5E0',
+    searchFocusBorderColor: '#805Ad5'
 }
 ```
 
