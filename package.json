@@ -105,10 +105,14 @@
   "typings": "./dist/index.d.ts",
   "keywords": [
     "react",
-    "react component",
+    "react-component",
     "select",
+    "multiselect",
     "react select",
     "column select",
-    "react column select"
+    "react column select",
+    "ui",
+    "form",
+    "input"
   ]
 }
