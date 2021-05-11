@@ -22,6 +22,7 @@ export default {
       format: 'cjs',
       strict: true,
       exports: 'named',
+      sourcemap: true,
       banner,
     },
     {
@@ -29,6 +30,7 @@ export default {
       format: 'es',
       strict: true,
       exports: 'named',
+      sourcemap: true,
       banner,
     },
   ],
