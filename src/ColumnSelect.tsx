@@ -78,13 +78,13 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     options.filter((o) => !defaultValue.find((d) => d.value === o.value))
   )
   const [current, setCurrent] = useState<OptionType>(options[0])
-  const [selectedOptions, setSelectedOptions] = useState<OptionsType>(
-    defaultValue
-  )
+  const [selectedOptions, setSelectedOptions] =
+    useState<OptionsType>(defaultValue)
 
-  const isMax = useMemo(() => (max ? selectedOptions.length >= max : false), [
-    selectedOptions,
-  ])
+  const isMax = useMemo(
+    () => (max ? selectedOptions.length >= max : false),
+    [selectedOptions]
+  )
 
   const disableAddAll = useMemo(
     () => (max ? selectOptions.length > max : false),
