@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react'
+import React, { FC, useEffect, useMemo, useState } from 'react'
 import Container from './components/container/container'
 import type {
   OptionType,
@@ -6,6 +6,7 @@ import type {
   ColumnType,
   OptionsType,
   ActionMeta,
+  ActionTypes,
 } from './types'
 
 interface ColumnSelectProps {
@@ -78,25 +79,32 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     options.filter((o) => !defaultValue.find((d) => d.value === o.value))
   )
   const [current, setCurrent] = useState<OptionType>(options[0])
-  const [selectedOptions, setSelectedOptions] =
-    useState<OptionsType>(defaultValue)
-
-  const isMax = useMemo(
-    () => (max ? selectedOptions.length >= max : false),
-    [selectedOptions]
+  const [selectedOptions, setSelectedOptions] = useState<OptionsType>(
+    defaultValue
   )
+  const [currentAction, setCurrentAction] = useState<ActionTypes>()
+
+  const isMax = useMemo(() => (max ? selectedOptions.length >= max : false), [
+    selectedOptions,
+  ])
 
   const disableAddAll = useMemo(
     () => (max ? selectOptions.length > max : false),
     [max]
   )
 
+  useEffect(() => {
+    if (currentAction) {
+      onChange(selectedOptions, { action: currentAction })
+    }
+  }, [selectedOptions])
+
   const add = () => {
     if (selectedOptions.find((c) => c.value === current.value) || isMax) return
     setSelectOptions(selectOptions.filter((o) => o.value !== current.value))
     setSelectedOptions([...selectedOptions, current])
 
-    onChange(selectedOptions, { action: 'add' })
+    setCurrentAction('add')
   }
 
   const addAll = () => {
@@ -105,7 +113,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     setCurrent(selectOptions[0])
     setSelectOptions([])
 
-    onChange(selectedOptions, { action: 'add-all' })
+    setCurrentAction('add-all')
   }
 
   const remove = () => {
@@ -113,7 +121,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     setSelectedOptions(selectedOptions.filter((o) => o.value !== current.value))
     setSelectOptions([...selectOptions, current])
 
-    onChange(selectedOptions, { action: 'remove' })
+    setCurrentAction('remove')
   }
 
   const removeAll = () => {
@@ -122,7 +130,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     setCurrent(selectedOptions[0])
     setSelectedOptions([])
 
-    onChange(selectedOptions, { action: 'remove-all' })
+    setCurrentAction('remove-all')
   }
 
   const handleNext = (column: ColumnType) => {
