@@ -27,14 +27,14 @@ npm i react-column-select
 import React, { useState } from 'react'
 import ColumnSelect from 'react-column-select'
 
-const hobbies = [
-  { value: '1', label: 'Hockey' },
-  { value: '2', label: 'Painting' },
-  { value: '3', label: 'Singing' },
-]
-
 const HobbiesSelect = () => {
   const [selected, setSelected] = useState([])
+
+  const hobbies = [
+    { value: '1', label: 'Hockey' },
+    { value: '2', label: 'Painting' },
+    { value: '3', label: 'Singing' },
+  ]
 
   const onChange = (values) => {
     setSelected(values)
