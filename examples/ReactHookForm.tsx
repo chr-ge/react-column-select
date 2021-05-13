@@ -26,10 +26,10 @@ const ReactHookForm: FC = () => {
         render={() => (
           <ColumnSelect
             options={chessOptions}
-            onChange={(e) =>
+            onChange={(values) =>
               setValue(
                 'favorites',
-                e.map((i: OptionType) => i.value)
+                values.map((option: OptionType) => option.value)
               )
             }
           />
