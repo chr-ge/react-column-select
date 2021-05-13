@@ -31,7 +31,10 @@ const Option: FC<OptionProps> = ({
   return (
     <Row
       aria-label={label}
-      onClick={onClick}
+      onClick={(e) => {
+        e.preventDefault()
+        onClick()
+      }}
       onDoubleClick={onDoubleClick}
       isSelected={isSelected}
       role='button'
