@@ -113,6 +113,7 @@
     "react column select",
     "ui",
     "form",
-    "input"
+    "input",
+    "transfer"
   ]
 }
