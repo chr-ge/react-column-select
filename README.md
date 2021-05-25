@@ -6,6 +6,8 @@
 [![Depfu](https://badges.depfu.com/badges/c540bb2dbd4e634a557231ecd335474e/overview.svg)](https://depfu.com/repos/github/chr-ge/react-column-select?project_id=24188)
 ![GitHub](https://img.shields.io/github/license/chr-ge/react-column-select)
 
+[Example](https://react-column-select.chr-ge.com/?path=/story/example-column-select--default)
+
 ## 🚀 Features
 
 - Easily customize colors
