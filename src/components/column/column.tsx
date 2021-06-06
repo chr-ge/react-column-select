@@ -18,7 +18,11 @@ interface ColumnProps {
 }
 
 const Column: FC<ColumnProps> = ({ id, isSearchable, children }) => {
-  return <VStack id={id} isSearchable={isSearchable}>{children}</VStack>
+  return (
+    <VStack id={id} isSearchable={isSearchable}>
+      {children}
+    </VStack>
+  )
 }
 
 export default Column
