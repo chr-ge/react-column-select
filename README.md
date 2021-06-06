@@ -69,6 +69,7 @@ const HobbiesSelect = () => {
 | `isSearchable`       | boolean  | ✖          | false        | enables searching                                   |
 | `searchPlaceholder`  | string   | ✖          | 'Search ...' | the placeholder string for the search inputs        |
 | `theme`              | object   | ✖          | {}           | the color theme                                     |
+| `disableAllButtons`  | boolean  | ✖          | false        | disable the "Add All" and "Remove All" buttons      |
 | `disableDoubleClick` | boolean  | ✖          | false        | disable double click to add/remove an option        |
 | `disableKeyboard`    | boolean  | ✖          | false        | disable navigation the select options with keyboard |
 

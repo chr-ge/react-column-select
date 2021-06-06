@@ -7,6 +7,7 @@ export interface ColumnSelectProps {
   theme?: Theme
   defaultValue?: OptionsType
   isSearchable?: boolean
+  disableAllButtons?: boolean
   disableDoubleClick?: boolean
   disableKeyboard?: boolean
   max?: number
@@ -26,6 +27,7 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
   defaultValue,
   max,
   isSearchable,
+  disableAllButtons,
   disableDoubleClick,
   disableKeyboard,
 }) => {
@@ -44,6 +46,7 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
           theme={theme}
           max={max}
           isSearchable={isSearchable}
+          disableAllButtons={disableAllButtons}
           disableDoubleClick={disableDoubleClick}
           disableKeyboard={disableKeyboard}
         />

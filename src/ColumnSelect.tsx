@@ -47,6 +47,11 @@ interface ColumnSelectProps {
    */
   searchPlaceholder?: string
   /**
+   * Disable the "Add All" and "Remove All" buttons.
+   * @default false
+   */
+  disableAllButtons?: boolean
+  /**
    * Disable double clicking to add/remove a list option.
    * @default false
    */
@@ -71,6 +76,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
   rightHeader,
   isSearchable,
   searchPlaceholder,
+  disableAllButtons,
   disableDoubleClick,
   disableKeyboard,
   theme,
@@ -184,6 +190,7 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       onPrevious={handlePrevious}
       isSearchable={isSearchable}
       searchPlaceholder={searchPlaceholder}
+      disableAllButtons={disableAllButtons}
       disableDoubleClick={disableDoubleClick}
       disableKeyboard={disableKeyboard}
       theme={customTheme}
