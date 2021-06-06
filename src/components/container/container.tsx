@@ -81,6 +81,11 @@ interface ContainerProps {
    */
   searchPlaceholder?: string
   /**
+   * Disable the "Add All" and "Remove All" buttons.
+   * @default false
+   */
+  disableAllButtons?: boolean
+  /**
    * Disable double clicking to add/remove a list option.
    */
   disableDoubleClick?: boolean
@@ -111,6 +116,7 @@ const Container: FC<ContainerProps> = ({
   onPrevious,
   isSearchable = false,
   searchPlaceholder,
+  disableAllButtons,
   disableDoubleClick,
   disableKeyboard,
   theme,
@@ -203,15 +209,17 @@ const Container: FC<ContainerProps> = ({
           isDisabled={!options.length || isMax}
           theme={theme}
         />
-        <Button
-          type='button'
-          label='Add All'
-          onClick={addAll}
-          rightIcon={<AddAll />}
-          marginTop='0.5rem'
-          isDisabled={!options.length || disableAddAll}
-          theme={theme}
-        />
+        {!disableAllButtons && (
+          <Button
+            type='button'
+            label='Add All'
+            onClick={addAll}
+            rightIcon={<AddAll />}
+            marginTop='0.5rem'
+            isDisabled={!options.length || disableAddAll}
+            theme={theme}
+          />
+        )}
         <Button
           type='button'
           label='Remove'
@@ -221,15 +229,17 @@ const Container: FC<ContainerProps> = ({
           isDisabled={!selected.length}
           theme={theme}
         />
-        <Button
-          type='button'
-          label='Remove All'
-          onClick={removeAll}
-          leftIcon={<RemoveAll />}
-          marginTop='0.5rem'
-          isDisabled={!selected.length}
-          theme={theme}
-        />
+        {!disableAllButtons && (
+          <Button
+            type='button'
+            label='Remove All'
+            onClick={removeAll}
+            leftIcon={<RemoveAll />}
+            marginTop='0.5rem'
+            isDisabled={!selected.length}
+            theme={theme}
+          />
+        )}
       </GridItemCenter>
       <GridItemHeaderRight theme={theme}>
         <Text>{rightHeader || 'Selected'}</Text>

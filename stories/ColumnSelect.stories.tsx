@@ -66,3 +66,6 @@ Searchable.args = {
   isSearchable: true,
   searchFocusBorderColor: '',
 }
+
+export const DisableAllButtons = Template.bind({})
+DisableAllButtons.args = { ...Default.args, disableAllButtons: true }
