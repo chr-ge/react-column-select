@@ -1,0 +1,22 @@
+name: Cypress
+
+on:
+  push:
+    paths: ['!*.md']
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+    - uses: actions/checkout@v2
+  
+    - name: Cypress E2E run
+      uses: cypress-io/github-action@v2
+      with:
+        start: yarn storybook
+        browser: chrome
+        headless: true
