@@ -1,6 +1,7 @@
 node_modules/
 coverage
 dist
+cypress/videos
 
 *.log
 .vscode
