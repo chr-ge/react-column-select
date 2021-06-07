@@ -53,6 +53,7 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <StyledButton
+      id={label.replace(/\W/g, '_')}
       aria-label={label}
       onClick={onClick}
       marginTop={marginTop}

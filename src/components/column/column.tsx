@@ -3,6 +3,10 @@ import { VStack } from './column.style'
 
 interface ColumnProps {
   /**
+   * HTML Id.
+   */
+  id: string
+  /**
    * Enable to make the columns searchable.
    */
   isSearchable: boolean
@@ -13,8 +17,12 @@ interface ColumnProps {
   children: ReactNode
 }
 
-const Column: FC<ColumnProps> = ({ isSearchable, children }) => {
-  return <VStack isSearchable={isSearchable}>{children}</VStack>
+const Column: FC<ColumnProps> = ({ id, isSearchable, children }) => {
+  return (
+    <VStack id={id} isSearchable={isSearchable}>
+      {children}
+    </VStack>
+  )
 }
 
 export default Column

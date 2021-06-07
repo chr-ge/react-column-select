@@ -180,6 +180,7 @@ const Container: FC<ContainerProps> = ({
       >
         {isSearchable && (
           <Input
+            id='left-search'
             name='left'
             placeholder={searchPlaceholder ?? 'Search ...'}
             value={search.left}
@@ -188,7 +189,7 @@ const Container: FC<ContainerProps> = ({
             theme={theme}
           />
         )}
-        <Column isSearchable={isSearchable}>
+        <Column id='left-column' isSearchable={isSearchable}>
           {filteredOptions.map((option) => (
             <Option
               key={`l-${option.value}`}
@@ -252,6 +253,7 @@ const Container: FC<ContainerProps> = ({
       >
         {isSearchable && (
           <Input
+            id='right-search'
             name='right'
             placeholder={searchPlaceholder ?? 'Search ...'}
             value={search.right}
@@ -260,7 +262,7 @@ const Container: FC<ContainerProps> = ({
             theme={theme}
           />
         )}
-        <Column isSearchable={isSearchable}>
+        <Column id='right-column' isSearchable={isSearchable}>
           {filteredSelected.map((option) => (
             <Option
               key={`r-${option.value}`}
