@@ -180,6 +180,7 @@ const Container: FC<ContainerProps> = ({
       >
         {isSearchable && (
           <Input
+            id='left-search'
             name='left'
             placeholder={searchPlaceholder ?? 'Search ...'}
             value={search.left}
@@ -252,6 +253,7 @@ const Container: FC<ContainerProps> = ({
       >
         {isSearchable && (
           <Input
+            id='right-search'
             name='right'
             placeholder={searchPlaceholder ?? 'Search ...'}
             value={search.right}

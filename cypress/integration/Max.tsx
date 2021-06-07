@@ -5,11 +5,6 @@ context('React Column Select | Max', () => {
     cy.visit('http://localhost:6006/iframe.html?id=example-column-select--max')
   })
 
-  it('check column titles', () => {
-    cy.get('p').contains('Available Pieces')
-    cy.get('p').contains('Selected Pieces')
-  })
-
   it('check initial column options length', () => {
     cy.get('#left-column').children().should('have.length', 6)
     cy.get('#right-column').children().should('have.length', 0)
