@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('React Column Select | Max', () => {
+context('React Column Select | Searchable', () => {
   beforeEach(() => {
     cy.visit('http://localhost:6006/iframe.html?id=example-column-select--searchable')
   })
