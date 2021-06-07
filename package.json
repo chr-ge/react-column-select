@@ -15,7 +15,7 @@
     "test": "jest --env=jsdom",
     "test:cov": "yarn jest --coverage",
     "e2e": "cypress open",
-    "e2e:run": "cypress run",
+    "e2e:run": "cypress run --record --key 88c8ff33-bb42-424e-8194-a38330f5aeb7",
     "e2e:test": "start-server-and-test storybook:ci http://localhost:6006 e2e:run"
   },
   "homepage": "https://react-column-select.chr-ge.com/",
