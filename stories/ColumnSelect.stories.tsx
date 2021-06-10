@@ -46,26 +46,26 @@ const Template: Story = (args) => {
   return <ColumnSelect theme={theme} {...args} />
 }
 
-export const Default = Template
+export const Default = Template.bind({})
 
-export const DisabledDoubleClick = Template
+export const DisabledDoubleClick = Template.bind({})
 DisabledDoubleClick.args = { ...Default.args, disableDoubleClick: true }
 
-export const DisabledKeyboard = Template
+export const DisabledKeyboard = Template.bind({})
 DisabledKeyboard.args = { ...Default.args, disableKeyboard: true }
 
-export const DefaultValues = Template
+export const DefaultValues = Template.bind({})
 DefaultValues.args = { ...Default.args, defaultValue: [options[1], options[2]] }
 
-export const Max = Template
+export const Max = Template.bind({})
 Max.args = { ...Default.args, max: 3 }
 
-export const Searchable = Template
+export const Searchable = Template.bind({})
 Searchable.args = {
   ...Default.args,
   isSearchable: true,
   searchFocusBorderColor: '',
 }
 
-export const DisableAllButtons = Template
+export const DisableAllButtons = Template.bind({})
 DisableAllButtons.args = { ...Default.args, disableAllButtons: true }
