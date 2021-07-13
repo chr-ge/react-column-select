@@ -1,6 +1,6 @@
 {
   "name": "react-column-select",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "React component to select options by transferring them from one column to another.",
   "scripts": {
     "build": "rollup -c",
@@ -40,7 +40,6 @@
     "@babel/preset-typescript": "^7.14.5",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@cypress/webpack-dev-server": "^1.4.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@storybook/addon-a11y": "^6.3.4",
     "@storybook/addon-actions": "^6.3.4",
@@ -56,7 +55,6 @@
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "babel-loader": "^8.2.2",
-    "cypress": "^7.7.0",
     "eslint": "^7.30.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-testing-library": "^4.9.0",
@@ -73,7 +71,6 @@
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
-    "start-server-and-test": "^1.12.6",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^4.0.0",
     "stylelint-config-styled-components": "^0.1.1",
