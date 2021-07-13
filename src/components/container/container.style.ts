@@ -3,7 +3,6 @@ import type { Theme } from '../../types'
 
 export const Grid = styled.div`
   display: grid;
-  margin-top: 1rem;
   min-height: 24rem;
   gap: 0.5rem;
   grid-template-columns: repeat(1, 5fr);
@@ -14,7 +13,7 @@ export const Grid = styled.div`
   }
 
   @media (min-width: 600px) {
-    grid-template-columns: repeat(5, 2fr);
+    grid-template-columns: repeat(2, 2fr) 1fr repeat(2, 2fr);
     grid-template-areas: 'a a b c c' 'd d b e e';
   }
 `
@@ -23,18 +22,36 @@ export const GridItemHeaderLeft = styled.div<{ theme: Theme }>`
   grid-area: a;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  border-width: thin;
-  background-color: ${({ theme }) => theme.headerBgColor};
+  padding: 1rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: ${({ theme }) => theme.columnBorderColor};
+  }
 `
 
 export const GridItemHeaderRight = styled.div<{ theme: Theme }>`
   grid-area: c;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  border-width: thin;
-  background-color: ${({ theme }) => theme.headerBgColor};
+  padding: 1rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: ${({ theme }) => theme.columnBorderColor};
+  }
 `
 
 export const GridItemCenter = styled.div`
@@ -44,12 +61,14 @@ export const GridItemCenter = styled.div`
 
 export const GridItemColumnLeft = styled.div<{ theme: Theme }>`
   grid-area: d;
-  border: thin solid ${({ theme }) => theme.columnBorderColor};
+  border: 2px solid ${({ theme }) => theme.columnBorderColor};
+  border-radius: 5px;
 `
 
 export const GridItemColumnRight = styled.div<{ theme: Theme }>`
   grid-area: e;
   border: thin solid ${({ theme }) => theme.columnBorderColor};
+  border-radius: 5px;
 `
 
 export const Input = styled.input<{ theme: Theme }>`

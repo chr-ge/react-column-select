@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { OptionType } from '../../types'
+import { OptionType, Theme } from '../../types'
 import { Row } from './option.style'
 
 interface OptionProps {
@@ -20,6 +20,10 @@ interface OptionProps {
    * The function fired by the onDoubleClick event.
    */
   onDoubleClick: () => void
+  /**
+   * The react-column-select theme object.
+   */
+  theme: Theme
 }
 
 const Option: FC<OptionProps> = ({
@@ -27,6 +31,7 @@ const Option: FC<OptionProps> = ({
   isSelected,
   onClick,
   onDoubleClick,
+  theme,
 }) => {
   return (
     <Row
@@ -38,6 +43,7 @@ const Option: FC<OptionProps> = ({
       onDoubleClick={onDoubleClick}
       isSelected={isSelected}
       role='button'
+      theme={theme}
     >
       {label}
     </Row>

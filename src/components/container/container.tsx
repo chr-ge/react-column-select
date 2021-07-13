@@ -169,15 +169,15 @@ const Container: FC<ContainerProps> = ({
 
   return (
     <Grid>
-      <GridItemHeaderLeft theme={theme}>
-        <Text>{leftHeader || 'Options'}</Text>
-      </GridItemHeaderLeft>
       <GridItemColumnLeft
         theme={theme}
         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
           disableKeyboard ? null : handleKeyPress(e, 'options')
         }
       >
+        <GridItemHeaderLeft theme={theme}>
+          <Text>{leftHeader || 'Options'}</Text>
+        </GridItemHeaderLeft>
         {isSearchable && (
           <Input
             id='left-search'
@@ -193,6 +193,7 @@ const Container: FC<ContainerProps> = ({
           {filteredOptions.map((option) => (
             <Option
               key={`l-${option.value}`}
+              theme={theme}
               label={option.label}
               isSelected={option.value === current?.value}
               onClick={() => select(option)}
@@ -242,15 +243,15 @@ const Container: FC<ContainerProps> = ({
           />
         )}
       </GridItemCenter>
-      <GridItemHeaderRight theme={theme}>
-        <Text>{rightHeader || 'Selected'}</Text>
-      </GridItemHeaderRight>
       <GridItemColumnRight
         theme={theme}
         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
           disableKeyboard ? null : handleKeyPress(e, 'selected')
         }
       >
+        <GridItemHeaderRight theme={theme}>
+          <Text>{rightHeader || 'Selected'}</Text>
+        </GridItemHeaderRight>
         {isSearchable && (
           <Input
             id='right-search'
@@ -266,6 +267,7 @@ const Container: FC<ContainerProps> = ({
           {filteredSelected.map((option) => (
             <Option
               key={`r-${option.value}`}
+              theme={theme}
               label={option.label}
               isSelected={option.value === current?.value}
               onClick={() => select(option)}

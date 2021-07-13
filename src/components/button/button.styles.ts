@@ -1,7 +1,10 @@
 import styled from '@emotion/styled'
 import type { Theme } from '../../types'
 
-export const Button = styled.button<{ marginTop?: string; theme: Theme }>`
+export const Button = styled.button<{
+  marginTop?: string
+  theme: Theme
+}>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -19,11 +22,12 @@ export const Button = styled.button<{ marginTop?: string; theme: Theme }>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(p) => p.theme.buttonBgColor}98;
+    background-color: ${({ theme }) => theme.buttonHoverBgColor};
   }
 
   &:disabled {
     cursor: not-allowed;
+    background-color: ${({ theme }) => theme.buttonDisabledBgColor};
   }
 `
 
