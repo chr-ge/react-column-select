@@ -1,14 +1,6 @@
 # React Column Select
 
-[![NPM](https://badgen.net/npm/v/react-column-select)](https://www.npmjs.com/package/react-column-select)
-[![CI](https://github.com/chr-ge/react-column-select/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/chr-ge/react-column-select/actions/workflows/ci.yml)
-[![react-column-select](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/p3czr7/develop&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/p3czr7/runs)
-[![DeepScan grade](https://deepscan.io/api/teams/14351/projects/17471/branches/400913/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=14351&pid=17471&bid=400913)
-[![SIZE](https://badgen.net/bundlephobia/min/react-column-select)](https://bundlephobia.com/result?p=react-column-select)
-[![Depfu](https://badges.depfu.com/badges/c540bb2dbd4e634a557231ecd335474e/overview.svg)](https://depfu.com/repos/github/chr-ge/react-column-select?project_id=24188)
-![GitHub](https://img.shields.io/github/license/chr-ge/react-column-select)
-
-[Example](https://react-column-select.chr-ge.com/?path=/story/example-column-select--default)
+Fored from [chr-ge/react-column-select](https://img.shields.io/github/license/chr-ge/react-column-select)
 
 ## 🚀 Features
 
@@ -86,7 +78,11 @@ Below is the default theme, change the values that you want to customize:
     textColor: '#000000',
     columnBgColor: '#CBD5E0',
     buttonBgColor: '#CBD5E0',
-    searchFocusBorderColor: '#805Ad5'
+    buttonHoverBgColor: '#CBD5E0',
+    buttonDisabledBgColor: '#CBD5E0',
+    searchFocusBorderColor: '#805Ad5',
+    optionHoverBgColor: '#CBD5E0',
+    optionSelectedBgColor: '#CBD5E0',
 }
 ```
 

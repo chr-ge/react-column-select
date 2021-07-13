@@ -13,20 +13,16 @@
     "storybook:ci": "start-storybook -p 6006 --ci",
     "build-storybook": "build-storybook -o docs-build",
     "test": "jest --env=jsdom",
-    "test:cov": "yarn jest --coverage",
-    "e2e": "cypress open",
-    "e2e:run": "cypress run --record --key 88c8ff33-bb42-424e-8194-a38330f5aeb7",
-    "e2e:test": "start-server-and-test storybook:ci http://localhost:6006 e2e:run"
+    "test:cov": "yarn jest --coverage"
   },
-  "homepage": "https://react-column-select.chr-ge.com/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chr-ge/react-column-select.git"
+    "url": "git+https://github.com/vabrell/react-column-select.git"
   },
   "bugs": {
-    "url": "https://github.com/chr-ge/react-column-select/issues"
+    "url": "https://github.com/vabrell/react-column-select/issues"
   },
-  "author": "chr-ge <george@chr-ge.com> (https://chr-ge.com/)",
+  "author": "vabrell <victor@abrell.se> (https://abrell.se/)",
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^11.0.0",
