@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { OptionType, Theme } from '../../types'
-import { Row } from './option.style'
+import type { OptionType, Theme } from '../../types'
+import { OptionButton } from './option.style'
 
 interface OptionProps {
   /**
@@ -34,7 +34,7 @@ const Option: FC<OptionProps> = ({
   theme,
 }) => {
   return (
-    <Row
+    <OptionButton
       aria-label={label}
       onClick={(e) => {
         e.preventDefault()
@@ -46,7 +46,7 @@ const Option: FC<OptionProps> = ({
       type='button'
     >
       {label}
-    </Row>
+    </OptionButton>
   )
 }
 

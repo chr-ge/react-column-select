@@ -1,7 +1,10 @@
 import styled from '@emotion/styled'
 import { Theme } from '../../types'
 
-export const Row = styled.button<{ isSelected: boolean; theme: Theme }>`
+export const OptionButton = styled.button<{
+  isSelected: boolean
+  theme: Theme
+}>`
   margin: 0;
   padding: 0.75rem 0.5rem;
   background-color: ${({ isSelected, theme }) =>
