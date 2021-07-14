@@ -11,9 +11,9 @@ export type Theme = {
   textColor?: string
   columnBgColor?: string
   buttonBgColor?: string
-  searchFocusBorderColor?: string
   optionSelectedBgColor?: string
   optionHoverBgColor?: string
+  searchFocusBorderColor?: string
 }
 
 export type ColumnType = 'options' | 'selected'
