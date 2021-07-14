@@ -167,6 +167,8 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       textColor: '#000000',
       columnBgColor: '#CBD5E0',
       buttonBgColor: '#CBD5E0',
+      optionSelectedBgColor: '#EDF2F7',
+      optionHoverBgColor: '#F0F4F7',
       searchFocusBorderColor: '#805Ad5',
     },
     theme

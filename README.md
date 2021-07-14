@@ -86,7 +86,9 @@ Below is the default theme, change the values that you want to customize:
     textColor: '#000000',
     columnBgColor: '#CBD5E0',
     buttonBgColor: '#CBD5E0',
-    searchFocusBorderColor: '#805Ad5'
+    searchFocusBorderColor: '#805Ad5',
+    optionSelectedBgColor: '#EDF2F7',
+    optionHoverBgColor: '#F0F4F7'
 }
 ```
 
