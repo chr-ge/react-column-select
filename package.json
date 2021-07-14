@@ -5,7 +5,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "eslint": "eslint ./src/**/*.tsx",
+    "eslint": "eslint ./src/**/*.tsx && tsc --pretty --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{ts,tsx}\"",
     "lint:css": "stylelint ./src/**/*style.ts",
