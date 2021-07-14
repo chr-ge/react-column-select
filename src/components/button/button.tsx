@@ -32,13 +32,13 @@ interface ButtonProps {
    */
   isDisabled?: boolean
   /**
-   * The react-column-select theme object.
-   */
-  theme: Theme
-  /**
    * The function to be fired by the button onClick event.
    */
   onClick: () => void
+  /**
+   * The react-column-select theme object.
+   */
+  theme: Theme
 }
 
 const Button: FC<ButtonProps> = ({

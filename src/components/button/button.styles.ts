@@ -19,7 +19,7 @@ export const Button = styled.button<{ marginTop?: string; theme: Theme }>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(p) => p.theme.buttonBgColor}98;
+    background-color: ${({ theme }) => theme.buttonBgColor}98;
   }
 
   &:disabled {
