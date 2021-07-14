@@ -17,12 +17,10 @@ interface ColumnProps {
   children: ReactNode
 }
 
-const Column: FC<ColumnProps> = ({ id, isSearchable, children }) => {
-  return (
-    <VStack id={id} isSearchable={isSearchable}>
-      {children}
-    </VStack>
-  )
-}
+const Column: FC<ColumnProps> = ({ id, isSearchable, children }) => (
+  <VStack id={id} isSearchable={isSearchable}>
+    {children}
+  </VStack>
+)
 
 export default Column

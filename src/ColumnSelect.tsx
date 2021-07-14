@@ -144,7 +144,6 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     const options = isOptionsCol ? selectOptions : selectedOptions
 
     const currentIndex = options.findIndex((o) => o.value === current.value)
-
     if (currentIndex !== options.length - 1) {
       setCurrent(options[currentIndex + 1])
     }
@@ -164,11 +163,11 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
     {
       headerBgColor: '#d6b1ff',
       columnBorderColor: '#cfa4ff',
-      textColor: '#000000',
       columnBgColor: '#CBD5E0',
+      textColor: '#000000',
       buttonBgColor: '#CBD5E0',
       optionSelectedBgColor: '#EDF2F7',
-      optionHoverBgColor: '#F0F4F7',
+      optionHoverBgColor: '#FAFBFC',
       searchFocusBorderColor: '#805Ad5',
     },
     theme
