@@ -4,7 +4,7 @@ import type { OptionsType, Theme } from '../src/types'
 import './column_select.css'
 
 export interface ColumnSelectProps {
-  theme?: Theme
+  theme: Theme
   defaultValue?: OptionsType
   isSearchable?: boolean
   disableAllButtons?: boolean
