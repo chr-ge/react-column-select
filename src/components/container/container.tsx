@@ -197,6 +197,7 @@ const Container: FC<ContainerProps> = ({
               isSelected={option.value === current?.value}
               onClick={() => select(option)}
               onDoubleClick={() => (disableDoubleClick ? null : add())}
+              theme={theme}
             />
           ))}
         </Column>
@@ -270,6 +271,7 @@ const Container: FC<ContainerProps> = ({
               isSelected={option.value === current?.value}
               onClick={() => select(option)}
               onDoubleClick={() => (disableDoubleClick ? null : remove())}
+              theme={theme}
             />
           ))}
         </Column>
