@@ -6,11 +6,11 @@ import {
   GridItemCenter,
   GridItemColumnLeft,
   GridItemColumnRight,
+  Column,
   Input,
   Text,
 } from './container.style'
 import type { ColumnType, OptionType, OptionsType, Theme } from '../../types'
-import Column from '../column/column'
 import Option from '../option/option'
 import Button from '../button/button'
 import { AddIcon, AddAll, RemoveIcon, RemoveAll } from '../icons'
