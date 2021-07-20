@@ -63,7 +63,7 @@
     "cypress": "^7.7.0",
     "eslint": "^7.31.0",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-testing-library": "^4.9.0",
+    "eslint-plugin-testing-library": "^4.9.1",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
