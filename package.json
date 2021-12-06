@@ -78,7 +78,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "start-server-and-test": "^1.14.0",
-    "storybook-addon-outline": "^1.4.1",
+    "storybook-addon-outline": "^1.4.2",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^4.0.0",
     "stylelint-config-styled-components": "^0.1.1",
