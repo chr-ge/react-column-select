@@ -44,7 +44,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@cypress/webpack-dev-server": "^1.8.3",
+    "@cypress/webpack-dev-server": "^1.8.4",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
