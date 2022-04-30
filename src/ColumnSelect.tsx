@@ -161,14 +161,14 @@ const ColumnSelect: React.FC<ColumnSelectProps> = ({
 
   const customTheme = Object.assign(
     {
-      headerBgColor: '#d6b1ff',
-      columnBorderColor: '#cfa4ff',
+      headerBgColor: '#d1d5db',
+      columnBorderColor: '#9ca3af',
       columnBgColor: '#CBD5E0',
       textColor: '#000000',
       buttonBgColor: '#CBD5E0',
       optionSelectedBgColor: '#EDF2F7',
       optionHoverBgColor: '#FAFBFC',
-      searchFocusBorderColor: '#805Ad5',
+      searchFocusBorderColor: '#06b6d4',
     },
     theme
   )

@@ -81,14 +81,14 @@ Below is the default theme, change the values that you want to customize:
 
 ```jsx
 {
-    headerBgColor: '#d6b1ff',
-    columnBorderColor: '#cfa4ff',
+    headerBgColor: '#d1d5db',
+    columnBorderColor: '#9ca3af',
     textColor: '#000000',
     columnBgColor: '#CBD5E0',
     buttonBgColor: '#CBD5E0',
     optionSelectedBgColor: '#EDF2F7',
     optionHoverBgColor: '#FAFBFC',
-    searchFocusBorderColor: '#805Ad5',
+    searchFocusBorderColor: '#06b6d4',
 }
 ```
 
