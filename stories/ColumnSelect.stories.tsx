@@ -1,5 +1,5 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 
 import ColumnSelect, { options } from './ColumnSelect'
 
@@ -9,14 +9,14 @@ export default {
   argTypes: {
     headerBgColor: {
       control: 'color',
-      defaultValue: '#D6B1FF',
+      defaultValue: '#d1d5db',
       table: {
         category: 'Colors',
       },
     },
     columnBorderColor: {
       control: 'color',
-      defaultValue: '#CFA4FF',
+      defaultValue: '#9ca3af',
       table: {
         category: 'Colors',
       },
@@ -95,7 +95,7 @@ Searchable.args = {
 Searchable.argTypes = {
   searchFocusBorderColor: {
     control: 'color',
-    defaultValue: '#805Ad5',
+    defaultValue: '#06b6d4',
   },
 }
 

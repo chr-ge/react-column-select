@@ -1,4 +1,9 @@
-import React, { FC, useState, KeyboardEvent, ChangeEvent, useMemo } from 'react'
+import React, {
+  useState,
+  KeyboardEvent,
+  useMemo,
+  ChangeEventHandler,
+} from 'react'
 import {
   Grid,
   GridItemHeaderLeft,
@@ -10,20 +15,22 @@ import {
   Input,
   Text,
 } from './container.style'
-import type { ColumnType, OptionType, OptionsType, Theme } from '../../types'
+import type {
+  ColumnType,
+  OptionType,
+  OptionsType,
+  Theme,
+  Labels,
+} from '../../types'
+import { AddIcon, AddAll, RemoveIcon, RemoveAll } from '../icons'
 import Option from '../option/option'
 import Button from '../button/button'
-import { AddIcon, AddAll, RemoveIcon, RemoveAll } from '../icons'
 
 interface ContainerProps {
   /**
-   * The header text of the left column.
+   * The component labels.
    */
-  leftHeader?: string
-  /**
-   * The header text of the right column.
-   */
-  rightHeader?: string
+  labels: Labels
   /**
    * The currently selected option.
    */
@@ -77,10 +84,6 @@ interface ContainerProps {
    */
   isSearchable?: boolean
   /**
-   * The placeholder string for the search inputs.
-   */
-  searchPlaceholder?: string
-  /**
    * Disable the "Add All" and "Remove All" buttons.
    * @default false
    */
@@ -99,9 +102,8 @@ interface ContainerProps {
   theme: Theme
 }
 
-const Container: FC<ContainerProps> = ({
-  leftHeader,
-  rightHeader,
+const Container: React.FC<ContainerProps> = ({
+  labels,
   current,
   select,
   add,
@@ -115,7 +117,6 @@ const Container: FC<ContainerProps> = ({
   onNext,
   onPrevious,
   isSearchable = false,
-  searchPlaceholder,
   disableAllButtons,
   disableDoubleClick,
   disableKeyboard,
@@ -123,14 +124,14 @@ const Container: FC<ContainerProps> = ({
 }) => {
   const [search, setSearch] = useState({ left: '', right: '' })
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearch({ ...search, [e.target.name]: e.target.value })
   }
 
   const handleKeyPress = (
     e: KeyboardEvent<HTMLDivElement>,
     column: ColumnType
-  ) => {
+  ): void => {
     const currentActive = document.activeElement
 
     if (e.key === 'ArrowDown') {
@@ -170,7 +171,7 @@ const Container: FC<ContainerProps> = ({
   return (
     <Grid>
       <GridItemHeaderLeft theme={theme}>
-        <Text>{leftHeader || 'Options'}</Text>
+        <Text>{labels.leftHeader}</Text>
       </GridItemHeaderLeft>
       <GridItemColumnLeft
         theme={theme}
@@ -182,7 +183,7 @@ const Container: FC<ContainerProps> = ({
           <Input
             id='left-search'
             name='left'
-            placeholder={searchPlaceholder ?? 'Search ...'}
+            placeholder={labels.searchPlaceholder}
             value={search.left}
             onChange={handleOnChange}
             type='search'
@@ -206,7 +207,7 @@ const Container: FC<ContainerProps> = ({
         <Button
           type='button'
           onClick={add}
-          label='Add'
+          label={labels.add}
           rightIcon={<AddIcon />}
           isDisabled={!options.length || isMax}
           theme={theme}
@@ -214,7 +215,7 @@ const Container: FC<ContainerProps> = ({
         {!disableAllButtons && (
           <Button
             type='button'
-            label='Add All'
+            label={labels.addAll}
             onClick={addAll}
             rightIcon={<AddAll />}
             marginTop='0.5rem'
@@ -224,7 +225,7 @@ const Container: FC<ContainerProps> = ({
         )}
         <Button
           type='button'
-          label='Remove'
+          label={labels.remove}
           onClick={remove}
           leftIcon={<RemoveIcon />}
           marginTop='1.5rem'
@@ -234,7 +235,7 @@ const Container: FC<ContainerProps> = ({
         {!disableAllButtons && (
           <Button
             type='button'
-            label='Remove All'
+            label={labels.removeAll}
             onClick={removeAll}
             leftIcon={<RemoveAll />}
             marginTop='0.5rem'
@@ -244,7 +245,7 @@ const Container: FC<ContainerProps> = ({
         )}
       </GridItemCenter>
       <GridItemHeaderRight theme={theme}>
-        <Text>{rightHeader || 'Selected'}</Text>
+        <Text>{labels.rightHeader}</Text>
       </GridItemHeaderRight>
       <GridItemColumnRight
         theme={theme}
@@ -256,7 +257,7 @@ const Container: FC<ContainerProps> = ({
           <Input
             id='right-search'
             name='right'
-            placeholder={searchPlaceholder ?? 'Search ...'}
+            placeholder={labels.searchPlaceholder}
             value={search.right}
             onChange={handleOnChange}
             type='search'

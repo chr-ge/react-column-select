@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import ColumnSelect from '../src'
 import type { OptionsType, Theme } from '../src/types'
 import './column_select.css'
@@ -22,7 +22,7 @@ export const options = [
   { value: 'king', label: 'King' },
 ]
 
-const ColumnSelectExample: FC<ColumnSelectProps> = ({
+const ColumnSelectExample: React.FC<ColumnSelectProps> = ({
   theme,
   defaultValue,
   max,
@@ -41,8 +41,10 @@ const ColumnSelectExample: FC<ColumnSelectProps> = ({
           options={options}
           defaultValue={defaultValue}
           onChange={(values) => setSelected(values)}
-          leftHeader='Available Pieces'
-          rightHeader='Selected Pieces'
+          labels={{
+            leftHeader: 'Available Pieces',
+            rightHeader: 'Selected Pieces',
+          }}
           theme={theme}
           max={max}
           isSearchable={isSearchable}

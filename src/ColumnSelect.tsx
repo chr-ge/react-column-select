@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Container from './components/container/container'
 import type {
   OptionType,
@@ -7,6 +7,7 @@ import type {
   OptionsType,
   ActionMeta,
   ActionTypes,
+  Labels,
 } from './types'
 
 interface ColumnSelectProps {
@@ -27,25 +28,14 @@ interface ColumnSelectProps {
    */
   max?: number
   /**
-   * The header text of the left column.
-   * @default 'Options'
+   * Labels for the Column Headers, Buttons & Search Input.
    */
-  leftHeader?: string
-  /**
-   * The header text of the right column.
-   * @default 'Selected'
-   */
-  rightHeader?: string
+  labels?: Partial<Labels>
   /**
    * Enable to make the columns searchable.
    * @default false
    */
   isSearchable?: boolean
-  /**
-   * The placeholder string for the search inputs.
-   * @default 'Search ...'
-   */
-  searchPlaceholder?: string
   /**
    * Disable the "Add All" and "Remove All" buttons.
    * @default false
@@ -67,15 +57,13 @@ interface ColumnSelectProps {
   theme?: Theme
 }
 
-const ColumnSelect: FC<ColumnSelectProps> = ({
+const ColumnSelect: React.FC<ColumnSelectProps> = ({
   options,
   onChange,
   defaultValue = [],
   max,
-  leftHeader,
-  rightHeader,
+  labels,
   isSearchable,
-  searchPlaceholder,
   disableAllButtons,
   disableDoubleClick,
   disableKeyboard,
@@ -161,22 +149,34 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
 
   const customTheme = Object.assign(
     {
-      headerBgColor: '#d6b1ff',
-      columnBorderColor: '#cfa4ff',
+      headerBgColor: '#d1d5db',
+      columnBorderColor: '#9ca3af',
       columnBgColor: '#CBD5E0',
       textColor: '#000000',
       buttonBgColor: '#CBD5E0',
       optionSelectedBgColor: '#EDF2F7',
       optionHoverBgColor: '#FAFBFC',
-      searchFocusBorderColor: '#805Ad5',
+      searchFocusBorderColor: '#06b6d4',
     },
     theme
   )
 
+  const customLabels = Object.assign(
+    {
+      leftHeader: 'Options',
+      rightHeader: 'Selected',
+      searchPlaceholder: 'Search ...',
+      add: 'Add',
+      addAll: 'Add All',
+      remove: 'Remove',
+      removeAll: 'Remove All',
+    },
+    labels
+  )
+
   return (
     <Container
-      leftHeader={leftHeader}
-      rightHeader={rightHeader}
+      labels={customLabels}
       current={current}
       select={(option: OptionType) => setCurrent(option)}
       add={add}
@@ -190,7 +190,6 @@ const ColumnSelect: FC<ColumnSelectProps> = ({
       onNext={handleNext}
       onPrevious={handlePrevious}
       isSearchable={isSearchable}
-      searchPlaceholder={searchPlaceholder}
       disableAllButtons={disableAllButtons}
       disableDoubleClick={disableDoubleClick}
       disableKeyboard={disableKeyboard}

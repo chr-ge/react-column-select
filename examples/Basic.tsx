@@ -1,10 +1,10 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { chessOptions } from './data/options'
 import ColumnSelect from '../src'
 
-const Basic: FC = () => {
+const Basic: React.FC = () => {
   const [selected, setSelected] = useState([])
-  
+
   return (
     <div>
       <p>Choose your favorite chess pieces.</p>
