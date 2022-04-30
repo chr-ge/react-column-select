@@ -1,4 +1,4 @@
-import React, { FC, useState, KeyboardEvent, ChangeEvent, useMemo } from 'react'
+import React, { useState, KeyboardEvent, ChangeEvent, useMemo } from 'react'
 import {
   Grid,
   GridItemHeaderLeft,
@@ -99,7 +99,7 @@ interface ContainerProps {
   theme: Theme
 }
 
-const Container: FC<ContainerProps> = ({
+const Container: React.FC<ContainerProps> = ({
   leftHeader,
   rightHeader,
   current,

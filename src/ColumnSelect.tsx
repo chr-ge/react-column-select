@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Container from './components/container/container'
 import type {
   OptionType,
@@ -67,7 +67,7 @@ interface ColumnSelectProps {
   theme?: Theme
 }
 
-const ColumnSelect: FC<ColumnSelectProps> = ({
+const ColumnSelect: React.FC<ColumnSelectProps> = ({
   options,
   onChange,
   defaultValue = [],

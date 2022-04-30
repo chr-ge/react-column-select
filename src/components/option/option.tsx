@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import type { OptionType, Theme } from '../../types'
 import { OptionButton } from './option.style'
 
@@ -26,7 +26,7 @@ interface OptionProps {
   theme: Theme
 }
 
-const Option: FC<OptionProps> = ({
+const Option: React.FC<OptionProps> = ({
   label,
   isSelected,
   onClick,

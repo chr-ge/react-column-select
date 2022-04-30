@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import ColumnSelect from '../src'
 import type { OptionsType, Theme } from '../src/types'
 import './column_select.css'
@@ -22,7 +22,7 @@ export const options = [
   { value: 'king', label: 'King' },
 ]
 
-const ColumnSelectExample: FC<ColumnSelectProps> = ({
+const ColumnSelectExample: React.FC<ColumnSelectProps> = ({
   theme,
   defaultValue,
   max,

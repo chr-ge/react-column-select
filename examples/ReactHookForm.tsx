@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import ColumnSelect from '../src'
 import type { OptionType } from '../src/types'
@@ -9,7 +9,7 @@ type FormData = {
   favorites: string[]
 }
 
-const ReactHookForm: FC = () => {
+const ReactHookForm: React.FC = () => {
   const { register, control, setValue, handleSubmit } = useForm()
 
   const onSubmit = (data: FormData) => {

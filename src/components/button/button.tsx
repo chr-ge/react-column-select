@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import type { Theme } from '../../types'
 import { Button as StyledButton, ButtonIcon } from './button.styles'
 
@@ -41,7 +41,7 @@ interface ButtonProps {
   theme: Theme
 }
 
-const Button: FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   leftIcon,
   rightIcon,
   label,
