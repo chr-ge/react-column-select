@@ -7,6 +7,7 @@ import type {
   OptionsType,
   ActionMeta,
   ActionTypes,
+  Labels,
 } from './types'
 
 interface ColumnSelectProps {
@@ -27,25 +28,14 @@ interface ColumnSelectProps {
    */
   max?: number
   /**
-   * The header text of the left column.
-   * @default 'Options'
+   * Labels for the Column Headers, Buttons & Search Input.
    */
-  leftHeader?: string
-  /**
-   * The header text of the right column.
-   * @default 'Selected'
-   */
-  rightHeader?: string
+  labels?: Partial<Labels>
   /**
    * Enable to make the columns searchable.
    * @default false
    */
   isSearchable?: boolean
-  /**
-   * The placeholder string for the search inputs.
-   * @default 'Search ...'
-   */
-  searchPlaceholder?: string
   /**
    * Disable the "Add All" and "Remove All" buttons.
    * @default false
@@ -72,10 +62,8 @@ const ColumnSelect: React.FC<ColumnSelectProps> = ({
   onChange,
   defaultValue = [],
   max,
-  leftHeader,
-  rightHeader,
+  labels,
   isSearchable,
-  searchPlaceholder,
   disableAllButtons,
   disableDoubleClick,
   disableKeyboard,
@@ -173,10 +161,22 @@ const ColumnSelect: React.FC<ColumnSelectProps> = ({
     theme
   )
 
+  const customLabels = Object.assign(
+    {
+      leftHeader: 'Options',
+      rightHeader: 'Selected',
+      searchPlaceholder: 'Search ...',
+      add: 'Add',
+      addAll: 'Add All',
+      remove: 'Remove',
+      removeAll: 'Remove All',
+    },
+    labels
+  )
+
   return (
     <Container
-      leftHeader={leftHeader}
-      rightHeader={rightHeader}
+      labels={customLabels}
       current={current}
       select={(option: OptionType) => setCurrent(option)}
       add={add}
@@ -190,7 +190,6 @@ const ColumnSelect: React.FC<ColumnSelectProps> = ({
       onNext={handleNext}
       onPrevious={handlePrevious}
       isSearchable={isSearchable}
-      searchPlaceholder={searchPlaceholder}
       disableAllButtons={disableAllButtons}
       disableDoubleClick={disableDoubleClick}
       disableKeyboard={disableKeyboard}

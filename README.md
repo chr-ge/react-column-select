@@ -31,14 +31,14 @@ npm i react-column-select
 import React, { useState } from 'react'
 import ColumnSelect from 'react-column-select'
 
+const hobbies = [
+  { value: '1', label: 'Hockey' },
+  { value: '2', label: 'Painting' },
+  { value: '3', label: 'Singing' },
+]
+
 const HobbiesSelect = () => {
   const [selected, setSelected] = useState([])
-
-  const hobbies = [
-    { value: '1', label: 'Hockey' },
-    { value: '2', label: 'Painting' },
-    { value: '3', label: 'Singing' },
-  ]
 
   const onChange = (values) => {
     setSelected(values)
@@ -50,8 +50,10 @@ const HobbiesSelect = () => {
       <ColumnSelect
         options={hobbies}
         onChange={onChange}
-        leftHeader='Available Hobbies'
-        rightHeader='Selected Hobbies'
+        labels={{
+          leftHeader: 'Available Hobbies',
+          rightHeader: 'Selected Hobbies',
+        }}
       />
     </div>
   )
@@ -60,24 +62,22 @@ const HobbiesSelect = () => {
 
 ## ⚙️ Props
 
-| name                 | type     | isRequired | default      | description                                         |
-| -------------------- | -------- | ---------- | ------------ | --------------------------------------------------- |
-| `options`            | array    | ✔          | N/A          | available select options                            |
-| `onChange`           | function | ✔          | N/A          | function called when selected values change         |
-| `defaultValue`       | array    | ✖          | []           | set the initial selected values                     |
-| `max`                | number   | ✖          | N/A          | set the max number of options that can be selected  |
-| `leftHeader`         | string   | ✖          | 'Options'    | the left column header                              |
-| `rightHeader`        | string   | ✖          | 'Selected'   | the right column headers                            |
-| `isSearchable`       | boolean  | ✖          | false        | enables searching                                   |
-| `searchPlaceholder`  | string   | ✖          | 'Search ...' | the placeholder string for the search inputs        |
-| `theme`              | object   | ✖          | {}           | the color theme                                     |
-| `disableAllButtons`  | boolean  | ✖          | false        | disable the "Add All" and "Remove All" buttons      |
-| `disableDoubleClick` | boolean  | ✖          | false        | disable double click to add/remove an option        |
-| `disableKeyboard`    | boolean  | ✖          | false        | disable navigation the select options with keyboard |
+| name                 | type     | isRequired | default     | description                                         |
+| -------------------- | -------- | ---------- | ----------- | --------------------------------------------------- |
+| `options`            | array    | ✔          | N/A         | available select options                            |
+| `onChange`           | function | ✔          | N/A         | function called when selected values change         |
+| `defaultValue`       | array    | ✖          | []          | set the initial selected values                     |
+| `max`                | number   | ✖          | N/A         | set the max number of options that can be selected  |
+| `labels`             | object   | ✖          | _see below_ | the labels for the headers, buttons & search input  |
+| `theme`              | object   | ✖          | _see below_ | the color theme                                     |
+| `isSearchable`       | boolean  | ✖          | false       | enables searching                                   |
+| `disableAllButtons`  | boolean  | ✖          | false       | disable the "Add All" and "Remove All" buttons      |
+| `disableDoubleClick` | boolean  | ✖          | false       | disable double click to add/remove an option        |
+| `disableKeyboard`    | boolean  | ✖          | false       | disable navigation the select options with keyboard |
 
 ## 🎨 Theme Customization
 
-Below is the default theme, change the values that you want to customize:
+Below is the default theme. Change the values that you want to customize:
 
 ```jsx
 {
@@ -89,6 +89,22 @@ Below is the default theme, change the values that you want to customize:
     optionSelectedBgColor: '#EDF2F7',
     optionHoverBgColor: '#FAFBFC',
     searchFocusBorderColor: '#06b6d4',
+}
+```
+
+## 🏷️ Label Customization
+
+Below are the default labels. Change the values that you want to customize:
+
+```jsx
+{
+    leftHeader: 'Options',
+    rightHeader: 'Selected',
+    searchPlaceholder: 'Search ...',
+    add: 'Add',
+    addAll: 'Add All',
+    remove: 'Remove',
+    removeAll: 'Remove All',
 }
 ```
 

@@ -41,8 +41,10 @@ const ColumnSelectExample: React.FC<ColumnSelectProps> = ({
           options={options}
           defaultValue={defaultValue}
           onChange={(values) => setSelected(values)}
-          leftHeader='Available Pieces'
-          rightHeader='Selected Pieces'
+          labels={{
+            leftHeader: 'Available Pieces',
+            rightHeader: 'Selected Pieces',
+          }}
           theme={theme}
           max={max}
           isSearchable={isSearchable}
